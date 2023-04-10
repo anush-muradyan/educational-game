@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49e18eaa08274778838a626b12f3ad01, type: 3}
+  m_Name: ViewPaths
+  m_EditorClassIdentifier: 
+  ViewAssetsPaths:
+  - AssetType: StartGameView
+    AssetPath:
+      m_AssetGUID: f06249cfc1f8c47168c6a24d823d87c5
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
