@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: a0436126cb71c4669b354ef1ca0ba5d9
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Noto Sans Armenian Condensed
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: e85c698dcfa5b48118eb1123651bd427, type: 3}
+  - {fileID: 12800000, guid: 78ab0ef140956416daff1f46fd3c3b1d, type: 3}
+  - {fileID: 12800000, guid: ea31febf793804e41b696eb06e826f0f, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

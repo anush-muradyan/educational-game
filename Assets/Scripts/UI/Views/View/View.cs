@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using Zenject;
 
-namespace UI.Views
+namespace UI.Views.ViewContainer
 {
     public interface IViewModel : IDisposable
     {
@@ -51,6 +51,11 @@ namespace UI.Views
         #endregion
 
         public abstract void ResetView();
+
+        public void SetActive(bool state)
+        {
+            gameObject.SetActive(state);
+        }
 
         public virtual void Show()
         {

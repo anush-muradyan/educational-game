@@ -11,7 +11,8 @@ namespace UI.Views
         UnityEvent<IView> OnWillHide { get; }
         UnityEvent<IView> OnWillShow { get; }
         UnityEvent<IView> OnShown { get; }
-        
+
+        void SetActive(bool state);
         void Show();
         void Hide();
         void ResetView();
