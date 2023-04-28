@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using Zenject;
 
-namespace UI.Views.ViewContainer
+namespace UI.Views
 {
     public interface IViewModel : IDisposable
     {

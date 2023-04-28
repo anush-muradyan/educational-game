@@ -1,9 +1,9 @@
 using System;
-using UI.Views.ViewContainer;
+using UI.Views;
 using UniRx;
 using UnityEngine;
 
-namespace UI.Views.ViewModels
+namespace UI.ViewModels
 {
     public class ViewModel:IViewModel
     {

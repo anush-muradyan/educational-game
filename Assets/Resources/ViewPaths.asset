@@ -19,3 +19,9 @@ MonoBehaviour:
       m_SubObjectName: 
       m_SubObjectType: 
       m_EditorAssetChanged: 0
+  - AssetType: GeographyGameView
+    AssetPath:
+      m_AssetGUID: 8458e1c22813c41a1b8a1c7df6e6bc51
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0

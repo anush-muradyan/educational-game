@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 284ae16fe74b40dbbe257545bc467b08, type: 3}
+  m_Name: FlagsQuizData
+  m_EditorClassIdentifier: 
+  flagData:
+  - countryFlag: {fileID: 21300000, guid: 41283bfc9341948d799d3fc5e1d0c80a, type: 3}
+    countryName: "\u0540\u0531\u0545\u0531\u054D\u054F\u0531\u0546"
+    letters: 4e054f054005460542054d054e05500531054a05450544054605510531053c053f053105
+  - countryFlag: {fileID: 21300000, guid: a35acf56be21b44acb72f28e29cdeb3e, type: 3}
+    countryName: "\u0544\u0535\u0554\u054D\u053B\u053F\u0531"
+    letters: 440531054e05310535054d0550054d05510554053f05460542053b0550054e0544054605
+  - countryFlag: {fileID: 21300000, guid: 7edb19833723f481e935787b6a5fc2d7, type: 3}
+    countryName: "\u0556\u0550\u0531\u0546\u054D\u053B\u0531"
+    letters: 31053b054d0556053b054e053f0551054105460540054d0551053c054205460531054405

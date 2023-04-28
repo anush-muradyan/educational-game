@@ -10,6 +10,7 @@ namespace UI.Installers
             Container.Bind<FlowFactory>().AsSingle().NonLazy();
             Container.Bind<FlowNavigator>().AsSingle().NonLazy();
             Container.BindFactory<GameFlow,PlaceholderFactory<GameFlow>>();
+            Container.BindFactory<GeographyFlow,PlaceholderFactory<GeographyFlow>>();
         }
     }
 }
