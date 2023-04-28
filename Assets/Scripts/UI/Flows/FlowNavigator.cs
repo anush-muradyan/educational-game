@@ -20,5 +20,12 @@ namespace UI.Flows
             flow.Run();
             return flow;
         }
+
+        public AbstractFlow RunGeographyFlow()
+        {
+            var flow = _flowFactory.CreateFlow<GeographyFlow>();
+            flow.Run();
+            return flow;
+        }
     }
 }
