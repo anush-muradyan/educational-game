@@ -25,6 +25,14 @@ MonoBehaviour:
     m_Address: FlagIcon
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: d4802d542052345829932037ef21ae99
+    m_Address: CountryItem
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 65c53d2e6709d4bac9633b2a007251e6
+    m_Address: InformationPageController
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 4b8b90a69af024f9cb4b6a43d7134321, type: 2}
   m_SchemaSet:

@@ -1141,8 +1141,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCacheable: 0
   flagGameButton: {fileID: 432867876617138149}
+  informationButton: {fileID: 3780053733660318294}
   flagGameAssetReference:
     m_AssetGUID: b9e8cbc5af27a4ad989e53b93726f095
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  informationAssetReference:
+    m_AssetGUID: 65c53d2e6709d4bac9633b2a007251e6
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0

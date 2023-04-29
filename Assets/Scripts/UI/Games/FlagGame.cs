@@ -6,7 +6,6 @@ using UI.Components;
 using UnityEngine;
 using UnityEngine.UI;
 using UniRx;
-using UnityEngine.Serialization;
 
 namespace UI.Games
 {
