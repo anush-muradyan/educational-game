@@ -28,10 +28,12 @@ namespace UI.Games
         private int _currentDataIndex;
         private CompositeDisposable _disposable;
 
+        public IObservable<string> OnComplete => onComplete;
         public IObservable<int> OnNextButtonClick => onNextButtonClickSubject;
         public IObservable<int> OnPreviousButtonClickSubject => onPreviousButtonClickSubject;
         private Subject<int> onNextButtonClickSubject = new Subject<int>();
         private Subject<int> onPreviousButtonClickSubject = new Subject<int>();
+        private Subject<string> onComplete = new Subject<string>();
 
         private PoolFactory<LetterIcon> _lettersFactory;
         private PoolFactory<LetterIcon> _answerFactory;
@@ -47,20 +49,32 @@ namespace UI.Games
             });
         }
 
-        public void Init(FlagData data, int dataIndex,int flagsCount)
+        public void Init(FlagData data, int dataIndex, int flagsCount, bool alreadyComplete)
         {
-             ResetGame();
-             InitButtons(dataIndex,flagsCount);
-             _lettersFactory ??= new PoolFactory<LetterIcon>(letterIcon, container, 20);
+            ResetGame();
+            InitButtons(dataIndex, flagsCount);
+            _lettersFactory ??= new PoolFactory<LetterIcon>(letterIcon, container, 20);
             _answerFactory ??= new PoolFactory<LetterIcon>(letterIcon, countryNameContainer, 20);
             _disposable = new CompositeDisposable();
-          
+
             _currentFlagData = data;
             _currentDataIndex = dataIndex;
             flagImage.sprite = _currentFlagData.CountryFlag;
+            ShowComplete(alreadyComplete);
+            if (alreadyComplete)
+            {
+                gameObject.SetActive(true);
+                return;
+            }
+
             InitLetters(_currentFlagData.Letters);
             CreateAnswerIcons(_currentFlagData.CountryName);
             gameObject.SetActive(true);
+        }
+
+        private void ShowComplete(bool complete)
+        {
+            correctPanel.gameObject.SetActive(complete);
         }
 
         private void InitButtons(int dataIndex, int flagsCount)
@@ -136,14 +150,15 @@ namespace UI.Games
                 }
             }
 
-            ShowCorrectAnswer();
-
+            SaveCompleteData();
+            ShowComplete(true);
         }
 
-        private void ShowCorrectAnswer()
+        private void SaveCompleteData()
         {
-            correctPanel.gameObject.SetActive(true);
+            onComplete?.OnNext(_currentFlagData.CountryName);
         }
+
 
         private void ShowWrongAnswer()
         {
@@ -176,5 +191,6 @@ namespace UI.Games
             _disposable?.Dispose();
             _clickedAnswers?.Clear();
         }
+        
     }
 }
