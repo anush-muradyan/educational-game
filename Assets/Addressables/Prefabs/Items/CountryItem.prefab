@@ -65,10 +65,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0540\u0561\u0575\u0561\u057D\u057F\u0561\u0576"
+  m_text: "\u0535\u0580\u0587\u0561\u0576"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d3a2eff1ed4844a06b780e1ef735a1a4, type: 2}
-  m_sharedMaterial: {fileID: -6047924662649346350, guid: d3a2eff1ed4844a06b780e1ef735a1a4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 92e7f03ed3d4e4600abfee467eb804e0, type: 2}
+  m_sharedMaterial: {fileID: -8801565475235319029, guid: 92e7f03ed3d4e4600abfee467eb804e0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -187,7 +187,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dc3067cd27f4000abc36a2c8b703cd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backButton: {fileID: 0}
   showInformation: {fileID: 1447578956744078173}
   countryNameText: {fileID: 7218492765555206364}
 --- !u!114 &428152789510073583

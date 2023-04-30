@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: DataInstaller
   m_EditorClassIdentifier: 
   flagsQuizData: {fileID: 11400000, guid: cff666b5964bd415f841ab59ca42ab4e, type: 2}
+  capitalCitiesData: {fileID: 11400000, guid: 943dc1ee923db4f318396f557cae33de, type: 2}
   countriesData: {fileID: 11400000, guid: d5c7dc23629ab482e869620e906aba26, type: 2}

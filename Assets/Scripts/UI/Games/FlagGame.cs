@@ -98,10 +98,12 @@ namespace UI.Games
 
         private void InitLetters(List<char> letters)
         {
-            foreach (var letter in letters)
+            for (int i = 0; i < letters.Count; i++)
             {
+                var letter = letters[i];
                 var l = _lettersFactory.Get();
                 _letters.Add(l);
+                l.transform.SetSiblingIndex(i);
                 l.Init(letter);
                 l.ButtonClickObservable.Subscribe(isFromInitialPos =>
                 {

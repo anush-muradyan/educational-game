@@ -9,7 +9,7 @@ using UnityEngine.UI;
 namespace UI.Games
 {
     public class FlagGameController : MonoBehaviour
-    {
+    { 
         [SerializeField] private FlagGame flagGame;
         [SerializeField] private FlagIcon flagIcon;
         [SerializeField] private RectTransform container;
@@ -19,9 +19,13 @@ namespace UI.Games
         private FlagsQuizData _flagData;
         private FlagGameAnsweredData _answeredData;
         
-        private  string _answeredDataFilePath =  Path.Combine(Application.persistentDataPath,"FlagGameData.json");
+        private  string _answeredDataFilePath ;//= Path.Combine(Application.persistentDataPath,"FlagGameData.json");
 
         public IObservable<Unit> OnBackButtonClick => backButton.OnClickAsObservable();
+
+        private void Start()
+        {
+        }
 
         private void OnEnable()
         {
@@ -49,9 +53,8 @@ namespace UI.Games
 
         public void RunGame(FlagsQuizData flagsQuizData)
         {
+            _answeredDataFilePath=Path.Combine(Application.persistentDataPath,"FlagGameData.json");
             _flagData = flagsQuizData;
-
-            
             _answeredData=GetAnsweredData();
             
             InitIcons(flagsQuizData);

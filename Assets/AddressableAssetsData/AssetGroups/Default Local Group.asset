@@ -33,6 +33,10 @@ MonoBehaviour:
     m_Address: InformationPageController
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 7571b73e5dda14be8ba027f4d3e7cc1b
+    m_Address: CapitalCityGame
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 4b8b90a69af024f9cb4b6a43d7134321, type: 2}
   m_SchemaSet:
