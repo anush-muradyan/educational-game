@@ -15,11 +15,15 @@ namespace UI.Components
         [SerializeField] private RectTransform container;
         
         public char Letter;
+        public int PosIndex;
+        private RectTransform _parent;
 
         private bool _isInitialPos = true;
 
         private CompositeDisposable _disposable=new CompositeDisposable();
         public IObservable<bool> ButtonClickObservable => buttonClickSubject;
+        public RectTransform Container => container;
+
         private Subject<bool> buttonClickSubject=new Subject<bool>();
         private Tween _tween;
 
@@ -47,23 +51,26 @@ namespace UI.Components
 
         public void Init(char letter)
         {
+            _parent = transform as RectTransform;
             _isInitialPos = true;
             Letter = letter;
             letterText.text = letter.ToString();
         }
 
-        public void SetState(Vector3 newPos)
+        public Tween SetState(Vector3 newPos,int posIndex)
         {
+            PosIndex = posIndex;
             _tween?.Kill();
-           _tween= container.transform.DOMove(newPos, 0.3f);
+           _tween = container.transform.DOMove(newPos, 0.3f);
+           return _tween;
         }
 
         private void SetInitialPos()
         {
             _tween?.Kill();
-            _tween=container.transform.DOLocalMove(Vector3.zero, 0.3f);
+            _tween = container.transform.DOLocalMove(Vector3.zero, 0.3f);
         }
-        
+
         public void Activate()
         {
             gameObject.SetActive(true);

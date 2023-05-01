@@ -20,10 +20,15 @@ namespace UI.Games
         [SerializeField] private RectTransform container;
         [SerializeField] private RectTransform countryNameContainer;
         [SerializeField] private RectTransform correctPanel;
+        [SerializeField] private RectTransform uiBlocker;
+        [SerializeField] private TextMeshProUGUI countryNameText;
 
         private readonly List<LetterIcon> _clickedAnswers = new List<LetterIcon>();
         private readonly List<LetterIcon> _answerItems = new List<LetterIcon>();
         private readonly List<LetterIcon> _letters = new List<LetterIcon>();
+        private Dictionary<int, LetterIcon> _userAnswers = new Dictionary<int, LetterIcon>();
+        private List<int> _freePlaces = new List<int>();
+
         private int _currentDataIndex;
         private CompositeDisposable _disposable;
 
@@ -105,35 +110,46 @@ namespace UI.Games
                 l.Init(letter);
                 l.ButtonClickObservable.Subscribe(isFromInitialPos =>
                 {
-                    OnLetterIconClick(isFromInitialPos, l, letter);
+                    OnLetterIconClick(isFromInitialPos, l);
                 }).AddTo(_disposable);
             }
         }
 
-        private void OnLetterIconClick(bool isFromInitialPos, LetterIcon l, char letter)
+        private void OnLetterIconClick(bool isFromInitialPos, LetterIcon letterItem)
         {
             if (isFromInitialPos)
             {
-                if (_clickedAnswers.Count >= _capitalCityData.CountryName.Length)
+                if (_clickedAnswers.Count >= _capitalCityData.CapitalCityName.Length)
                 {
                     return;
                 }
 
-                _clickedAnswers.Add(l);
-                Debug.LogError(
-                    $"{_clickedAnswers.Count} - {_answerItems[_clickedAnswers.Count - 1].transform.position} - {_answerItems.Count}");
-                l.SetState(_answerItems[_clickedAnswers.Count - 1].transform.position);
-                InitAnswerLetter(letter);
+                _clickedAnswers.Add(letterItem);
+                var insertPos = _clickedAnswers.Count - 1;
+                if (_freePlaces != null && _freePlaces.Count > 0)
+                {
+                    _freePlaces.Sort();
+                    if (_freePlaces[0] <= insertPos)
+                    {
+                        insertPos = _freePlaces[0];
+                        _freePlaces.RemoveAt(0);
+                    }
+                }
+
+                _userAnswers.Add(insertPos, letterItem);
+                letterItem.SetState(_answerItems[insertPos].transform.position, insertPos);
+                InitAnswerLetter();
             }
             else
             {
-                _clickedAnswers.Remove(l);
+                _userAnswers.Remove(letterItem.PosIndex);
+                _freePlaces.Add(letterItem.PosIndex);
+                _clickedAnswers.Remove(letterItem);
             }
         }
 
-        private void InitAnswerLetter(char letter)
+        private void InitAnswerLetter()
         {
-            // _answerItems[_clickedAnswers.Count - 1].Init(letter);
             if (_clickedAnswers.Count == _capitalCityData.CapitalCityName.Length)
             {
                 CheckForRight();
@@ -144,12 +160,18 @@ namespace UI.Games
         {
             for (int i = 0; i < _capitalCityData.CapitalCityName.Length; i++)
             {
-                if (!_capitalCityData.CapitalCityName[i].Equals(_clickedAnswers[i].Letter))
+                if (!_userAnswers.ContainsKey(i))
                 {
                     ShowWrongAnswer();
                     return;
                 }
+
             }
+
+            uiBlocker.gameObject.SetActive(true);
+            countryNameText.text = _capitalCityData.CountryName;
+            container.gameObject.SetActive(false);
+            countryNameContainer.gameObject.SetActive(false);
 
             SaveCompleteData();
             ShowComplete(true);
@@ -187,11 +209,14 @@ namespace UI.Games
             {
                 answer.ResetPosition();
             }
-
+            _freePlaces?.Clear();
             ReleaseFactoryItems(_letters, _lettersFactory);
             ReleaseFactoryItems(_answerItems, _answerFactory);
             _disposable?.Dispose();
             _clickedAnswers?.Clear();
+            uiBlocker.gameObject.SetActive(false);
+            container.gameObject.SetActive(true);
+            countryNameContainer.gameObject.SetActive(true);
         }
 
     }

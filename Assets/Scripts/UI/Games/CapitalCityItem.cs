@@ -11,15 +11,17 @@ namespace UI.Games
     {
         [SerializeField] private Button button;
         [SerializeField] private TextMeshProUGUI countryNameText;
+        [SerializeField] private RectTransform completeImage;
 
         public IObservable<Unit> OnButtonClickObserver => button.OnClickAsObservable();
        
         private CountryData _countryData;
 
-        public void Init(string countryName)
+        public void Init(string countryName,bool alreadyComplete)
         {
             countryNameText.text = countryName;
             gameObject.SetActive(true);
+            completeImage.gameObject.SetActive(alreadyComplete);
         }
 
     }

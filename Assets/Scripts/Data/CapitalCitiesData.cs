@@ -12,7 +12,6 @@ namespace Data
         public List<CapitalCityData> CapitalCityData => capitalCityData;
     }
 
-
     [Serializable]
     public class CapitalCityData
     {

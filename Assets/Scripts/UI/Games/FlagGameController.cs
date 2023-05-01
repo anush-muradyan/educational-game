@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using Data;
+using UI.Components;
 using UnityEngine;
 using UniRx;
 using UnityEngine.UI;
@@ -10,16 +11,16 @@ namespace UI.Games
 {
     public class FlagGameController : MonoBehaviour
     { 
+        [SerializeField] private Button backButton; 
         [SerializeField] private FlagGame flagGame;
         [SerializeField] private FlagIcon flagIcon;
         [SerializeField] private RectTransform container;
-        [SerializeField] private Button backButton; 
        
         private readonly List<FlagIcon> _flagIcons = new List<FlagIcon>();
         private FlagsQuizData _flagData;
         private FlagGameAnsweredData _answeredData;
-        
-        private  string _answeredDataFilePath ;//= Path.Combine(Application.persistentDataPath,"FlagGameData.json");
+
+        private string _answeredDataFilePath;
 
         public IObservable<Unit> OnBackButtonClick => backButton.OnClickAsObservable();
 

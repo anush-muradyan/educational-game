@@ -90,7 +90,7 @@ namespace UI.Games
                     capitalCityGame.Init(data, i1, capitalCities.CapitalCityData.Count,
                         _answeredData.AnsweredData.Contains(data.CountryName));
                 });
-                icon.Init(data.CountryName);
+                icon.Init(data.CountryName,_answeredData.AnsweredData.Contains(data.CountryName));
                 _capitalsIcons.Add(icon);
             }
         }
