@@ -15,7 +15,181 @@ MonoBehaviour:
   capitalCityData:
   - countryName: "\u0533\u0565\u0580\u0574\u0561\u0576\u056B\u0561"
     capitalCityName: "\u0532\u0535\u054C\u053C\u053B\u0546"
-    letters: 35053c053b053105460544053f0534053805320546053205310550054c054e05
+    itemsCount: 16
   - countryName: "\u0556\u0580\u0561\u0576\u057D\u056B\u0561"
     capitalCityName: "\u0553\u0531\u0550\u053B\u0536"
-    letters: 3c055005310546053b0536053f0534053805320546053105500553054c054e05
+    itemsCount: 16
+  - countryName: "\u0540\u0561\u0575\u0561\u057D\u057F\u0561\u0576"
+    capitalCityName: "\u0535\u0550\u0535\u054E\u0531\u0546"
+    itemsCount: 16
+  - countryName: "\u053B\u057F\u0561\u056C\u056B\u0561"
+    capitalCityName: "\u0540\u054C\u0548\u0544"
+    itemsCount: 16
+  - countryName: "\u053B\u057D\u057A\u0561\u0576\u056B\u0561"
+    capitalCityName: "\u0544\u0531\u0534\u0550\u053B\u0534"
+    itemsCount: 16
+  - countryName: "\u054A\u0578\u0580\u057F\u0578\u0582\u0563\u0561\u056C\u056B\u0561"
+    capitalCityName: "\u053C\u053B\u054D\u0531\u0532\u0548\u0546"
+    itemsCount: 16
+  - countryName: "\u0547\u057E\u0565\u0575\u0581\u0561\u0580\u056B\u0561"
+    capitalCityName: "\u0532\u0535\u054C\u0546"
+    itemsCount: 16
+  - countryName: "\u0531\u057E\u057D\u057F\u0580\u0561\u056C\u056B\u0561"
+    capitalCityName: "\u053F\u0531\u0546\u0532\u0535\u0550\u0550\u0531"
+    itemsCount: 16
+  - countryName: "\u0546\u0578\u0580\u057E\u0565\u0563\u056B\u0561"
+    capitalCityName: "\u0555\u054D\u053C\u0548"
+    itemsCount: 8
+  - countryName: "\u0534\u0561\u0576\u056B\u0561"
+    capitalCityName: "\u0553\u0531\u0550\u053B\u0536"
+    itemsCount: 16
+  - countryName: "\u0556\u056B\u0576\u056C\u0561\u0576\u0564\u056B\u0561"
+    capitalCityName: "\u0553\u0531\u0550\u053B\u0536"
+    itemsCount: 16
+  - countryName: "\u053B\u057C\u056C\u0561\u0576\u0564\u056B\u0561"
+    capitalCityName: "\u0553\u0531\u0550\u053B\u0536"
+    itemsCount: 16
+  - countryName: "\u0556\u056B\u056C\u056B\u057A\u056B\u0576\u0576\u0565\u0580"
+    capitalCityName: "\u0553\u0531\u0550\u053B\u0536"
+    itemsCount: 16
+  - countryName: "\u053C\u0565\u0576\u0570\u0561\u057D\u057F\u0561\u0576"
+    capitalCityName: "\u0553\u0531\u0550\u053B\u0536"
+    itemsCount: 16
+  - countryName: "\u054E\u0580\u0561\u057D\u057F\u0561\u0576"
+    capitalCityName: "\u0553\u0531\u0550\u053B\u0536"
+    itemsCount: 16
+  - countryName: "\u054C\u0578\u0582\u057D\u0561\u057D\u057F\u0561\u0576"
+    capitalCityName: "\u0553\u0531\u0550\u053B\u0536"
+    itemsCount: 16
+  - countryName: "\u0540\u0578\u0582\u0576\u0561\u057D\u057F\u0561\u0576"
+    capitalCityName: "\u0553\u0531\u0550\u053B\u0536"
+    itemsCount: 16
+  - countryName: "\u053D\u0578\u0580\u057E\u0561\u0569\u056B\u0561"
+    capitalCityName: "\u0553\u0531\u0550\u053B\u0536"
+    itemsCount: 16
+  - countryName: "\u054D\u056C\u0578\u057E\u0561\u056F\u056B\u0561"
+    capitalCityName: "\u0553\u0531\u0550\u053B\u0536"
+    itemsCount: 16
+  - countryName: "\u054C\u0578\u0582\u0574\u056B\u0576\u056B\u0561"
+    capitalCityName: "\u0553\u0531\u0550\u053B\u0536"
+    itemsCount: 16
+  - countryName: "\u0540\u0576\u0564\u056F\u0561\u057D\u057F\u0561\u0576"
+    capitalCityName: "\u0553\u0531\u0550\u053B\u0536"
+    itemsCount: 16
+  - countryName: "\u053C\u0561\u057F\u057E\u056B\u0561"
+    capitalCityName: "\u0553\u0531\u0550\u053B\u0536"
+    itemsCount: 16
+  - countryName: "\u053C\u056B\u057F\u057E\u0561"
+    capitalCityName: "\u0553\u0531\u0550\u053B\u0536"
+    itemsCount: 16
+  - countryName: "\u0537\u057D\u057F\u0578\u0576\u056B\u0561"
+    capitalCityName: "\u0553\u0531\u0550\u053B\u0536"
+    itemsCount: 16
+  - countryName: "\u0549\u0565\u056D\u056B\u0561"
+    capitalCityName: "\u0553\u0531\u0550\u053B\u0536"
+    itemsCount: 16
+  - countryName: "\u0532\u0578\u0582\u056C\u0572\u0561\u0580\u056B\u0561"
+    capitalCityName: "\u0553\u0531\u0550\u053B\u0536"
+    itemsCount: 16
+  - countryName: "\u0548\u0582\u056F\u0580\u0561\u056B\u0576\u0561"
+    capitalCityName: "\u0553\u0531\u0550\u053B\u0536"
+    itemsCount: 16
+  - countryName: "\u0531\u056C\u0562\u0561\u0576\u056B\u0561"
+    capitalCityName: "\u0553\u0531\u0550\u053B\u0536"
+    itemsCount: 16
+  - countryName: "\u0532\u0565\u056C\u0561\u057C\u0578\u0582\u057D"
+    capitalCityName: "\u0553\u0531\u0550\u053B\u0536"
+    itemsCount: 16
+  - countryName: "\u0549\u056B\u0576\u0561\u057D\u057F\u0561\u0576"
+    capitalCityName: "\u0553\u0531\u0550\u053B\u0536"
+    itemsCount: 16
+  - countryName: "\u0540\u0561\u0580\u0561\u057E\u0561\u0575\u056B\u0576 \u053F\u0578\u0580\u0565\u0561"
+    capitalCityName: "\u054D\u0535\u0548\u0552\u053C"
+    itemsCount: 16
+  - countryName: "\u053B\u0580\u0561\u0576"
+    capitalCityName: "\u0539\u0535\u0540\u0550\u0531\u0546"
+    itemsCount: 16
+  - countryName: "\u054D\u056B\u0580\u056B\u0561"
+    capitalCityName: "\u0534\u0531\u0544\u0531\u054D\u053F\u0548\u054D"
+    itemsCount: 16
+  - countryName: "\u0535\u0563\u056B\u057A\u057F\u0578\u057D"
+    capitalCityName: "\u053F\u0531\u0540\u053B\u0550\u0535"
+    itemsCount: 16
+  - countryName: "\u0531\u056C\u056A\u056B\u0580"
+    capitalCityName: "\u0531\u053C\u053A\u053B\u0550"
+    itemsCount: 16
+  - countryName: "\u0531\u0544\u0546"
+    capitalCityName: "\u054E\u0531\u0547\u053B\u0546\u0533\u054F\u0548\u0546"
+    itemsCount: 16
+  - countryName: "\u053F\u0561\u0576\u0561\u0564\u0561"
+    capitalCityName: "\u0555\u0539\u0535\u054E\u0531"
+    itemsCount: 16
+  - countryName: "\u0532\u0580\u0561\u0566\u056B\u056C\u056B\u0561"
+    capitalCityName: "\u0532\u0550\u0531\u0536\u053B\u053C\u053B\u0531"
+    itemsCount: 16
+  - countryName: "\u0544\u0565\u0584\u057D\u056B\u056F\u0561"
+    capitalCityName: "\u0544\u0535\u053D\u053B\u053F\u0548"
+    itemsCount: 16
+  - countryName: "\u0531\u0580\u0563\u0565\u0576\u057F\u056B\u0576\u0561"
+    capitalCityName: 
+    itemsCount: 16
+  - countryName: "\u0544\u0535\u056E \u0532\u0580\u056B\u057F\u0561\u0576\u056B\u0561"
+    capitalCityName: "\u053C\u0548\u0546\u0534\u0548\u0546"
+    itemsCount: 16
+  - countryName: "\u054E\u056B\u0565\u057F\u0576\u0561\u0574"
+    capitalCityName: "\u0540\u0531\u0546\u0548\u0545"
+    itemsCount: 16
+  - countryName: "\u054E\u0561\u057F\u056B\u056F\u0561\u0576"
+    capitalCityName: "\u054E\u0531\u054F\u053B\u053F\u0531\u0546"
+    itemsCount: 16
+  - countryName: "\u053F\u056B\u057A\u0580\u0578\u057D"
+    capitalCityName: "\u0546\u053B\u053F\u0548\u054D\u053B\u0531"
+    itemsCount: 16
+  - countryName: "\u0548\u0582\u0565\u056C\u057D"
+    capitalCityName: "\u0554\u0531\u0550\u0534\u053B\u0556"
+    itemsCount: 16
+  - countryName: "\u0543\u0561\u057A\u0578\u0576\u056B\u0561"
+    capitalCityName: "\u054F\u0548\u053F\u053B\u0548"
+    itemsCount: 16
+  - countryName: "\u0542\u0561\u0566\u0561\u056D\u057D\u057F\u0561\u0576"
+    capitalCityName: "\u0531\u054D\u054F\u0531\u0546\u0531"
+    itemsCount: 16
+  - countryName: "\u0548\u0582\u0566\u0562\u0565\u056F\u057D\u057F\u0561\u0576"
+    capitalCityName: "\u054F\u0531\u0547\u0554\u0535\u0546\u0534"
+    itemsCount: 16
+  - countryName: "\u054F\u0561\u057B\u056B\u056F\u057D\u057F\u0561\u0576"
+    capitalCityName: "\u0534\u0548\u0552\u0547\u0531\u0546\u0532\u0535"
+    itemsCount: 16
+  - countryName: "\u053B\u057D\u0580\u0561\u0575\u0565\u056C"
+    capitalCityName: "\u0535\u0550\u0548\u0552\u054D\u0531\u0542\u0535\u0544"
+    itemsCount: 16
+  - countryName: "\u0539\u0578\u0582\u0580\u0584\u0574\u0565\u0576\u057D\u057F\u0561\u0576"
+    capitalCityName: "\u0531\u0547\u053D\u0531\u0532\u0531\u0534"
+    itemsCount: 16
+  - countryName: "\u0546\u056B\u0563\u0565\u0580\u056B\u0561"
+    capitalCityName: "\u0531\u0532\u0548\u0552\u054B\u0531"
+    itemsCount: 16
+  - countryName: "\u0531\u057E\u057D\u057F\u0580\u056B\u0561"
+    capitalCityName: "\u054E\u053B\u0535\u0546\u0546\u0531"
+    itemsCount: 16
+  - countryName: "\u054E\u0565\u0576\u0565\u057D\u0578\u0582\u0565\u056C\u0561"
+    capitalCityName: "\u053F\u0531\u0550\u0531\u053F\u0531\u054D"
+    itemsCount: 16
+  - countryName: "\u0549\u056B\u056C\u056B"
+    capitalCityName: "\u054D\u0531\u0546\u054F\u053B\u0531\u0533\u0548"
+    itemsCount: 16
+  - countryName: "\u0548\u0582\u0580\u0578\u0582\u0563\u057E\u0561\u0575"
+    capitalCityName: "\u0544\u0548\u0546\u054F\u0535\u054E\u053B\u0534\u0535\u0548"
+    itemsCount: 16
+  - countryName: "\u054A\u0565\u0580\u0578\u0582"
+    capitalCityName: "\u053C\u053B\u0544\u0531"
+    itemsCount: 16
+  - countryName: "\u054A\u0561\u0580\u0561\u0563\u057E\u0561\u0575"
+    capitalCityName: "\u0531\u054D\u0548\u0552\u0546\u053B\u054D\u053B\u0548\u0546"
+    itemsCount: 16
+  - countryName: "\u0537\u056F\u057E\u0561\u0564\u0578\u0580"
+    capitalCityName: "\u053F\u053B\u054F\u0548"
+    itemsCount: 8
+  - countryName: "\u0532\u0578\u056C\u056B\u057E\u056B\u0561"
+    capitalCityName: "\u054D\u0548\u0552\u053F\u0550\u0535"
+    itemsCount: 16

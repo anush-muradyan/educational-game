@@ -21,10 +21,6 @@ MonoBehaviour:
     m_Address: FlagsGame
     m_ReadOnly: 0
     m_SerializedLabels: []
-  - m_GUID: cdc4df79a2a2b4e84a8727c399c9de64
-    m_Address: FlagIcon
-    m_ReadOnly: 0
-    m_SerializedLabels: []
   - m_GUID: d4802d542052345829932037ef21ae99
     m_Address: CountryItem
     m_ReadOnly: 0

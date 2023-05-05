@@ -4,9 +4,11 @@ using Data;
 using Pooling;
 using TMPro;
 using UI.Components;
-using UnityEngine;
 using UnityEngine.UI;
 using UniRx;
+using UnityEngine;
+using Random = System.Random;
+using RandomNumberGenerator = UnityEngine.Random;
 
 namespace UI.Games
 {
@@ -29,9 +31,22 @@ namespace UI.Games
         private readonly List<LetterIcon> _answerItems = new List<LetterIcon>();
         private readonly List<LetterIcon> _letters = new List<LetterIcon>();
 
+        private readonly List<char> _randomLetters = new List<char>()
+        {
+            'Ա', 'Բ', 'Գ', 'Դ', 'Ե', 'Զ', 'Է',
+            'Ը', 'Թ', 'Ժ', 'Ի', 'Լ', 'Խ', 'Ծ',
+            'Կ', 'Հ', 'Ձ', 'Ղ', 'Ճ', 'Մ', 'Յ',
+            'Ն', 'Շ', 'Ո', 'Չ', 'Պ', 'Ջ', 'Ռ',
+            'Ս', 'Վ', 'Տ', 'Ր', 'Ց', 'Փ', 'Ք',
+            'Օ', 'Ֆ'
+        };
+
         private Dictionary<int, LetterIcon> _userAnswers = new Dictionary<int, LetterIcon>();
+
         private FlagData _currentFlagData;
+
         private int _currentDataIndex;
+
         private CompositeDisposable _disposable;
 
         public IObservable<string> OnComplete => onComplete;
@@ -71,7 +86,7 @@ namespace UI.Games
                 return;
             }
 
-            InitLetters(_currentFlagData.Letters);
+            InitLetters(_currentFlagData.CountryName,_currentFlagData.ItemsCount);
             CreateAnswerIcons(_currentFlagData.CountryName);
             gameObject.SetActive(true);
         }
@@ -100,17 +115,42 @@ namespace UI.Games
             }
         }
 
-        private void InitLetters(List<char> letters)
+        private void InitLetters(string letters,int count)
         {
-            for (int i = 0; i < letters.Count; i++)
+            var list = RandomizeElements(letters, count);
+
+            for (int i = 0; i < list.Count; i++)
             {
-                var letter = letters[i];
+                var letter = list[i];
                 var l = _lettersFactory.Get();
                 _letters.Add(l);
                 l.transform.SetSiblingIndex(i);
                 l.Init(letter);
                 l.ButtonClickObservable.Subscribe(isFromInitialPos => OnLetterIconClick(isFromInitialPos, l)).AddTo(_disposable);
             }
+        }
+
+        private List<char> RandomizeElements(string letters, int count)
+        {
+            var list = new List<char>(count);
+            list.AddRange(letters);
+
+            for (int i = letters.Length; i < count; i++)
+            {
+                int index = RandomNumberGenerator.Range(0, _randomLetters.Count - 1);
+
+                list.Add(_randomLetters[index]);
+            }
+
+            Random random = new Random();
+
+            for (int i = list.Count - 1; i >= 1; i--)
+            {
+                int j = random.Next(i + 1);
+                (list[j], list[i]) = (list[i], list[j]);
+            }
+
+            return list;
         }
 
         private void OnLetterIconClick(bool isFromInitialPos, LetterIcon letterItem)
@@ -163,7 +203,6 @@ namespace UI.Games
                     ShowWrongAnswer();
                     return;
                 }
-
             }
 
             uiBlocker.gameObject.SetActive(true);

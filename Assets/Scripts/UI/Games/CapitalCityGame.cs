@@ -7,6 +7,8 @@ using UI.Components;
 using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = System.Random;
+using RandomNumberGenerator = UnityEngine.Random;
 
 namespace UI.Games
 {
@@ -31,6 +33,15 @@ namespace UI.Games
 
         private int _currentDataIndex;
         private CompositeDisposable _disposable;
+        private readonly List<char> _randomLetters = new List<char>()
+        {
+            'Ա', 'Բ', 'Գ', 'Դ', 'Ե', 'Զ', 'Է',
+            'Ը', 'Թ', 'Ժ', 'Ի', 'Լ', 'Խ', 'Ծ',
+            'Կ', 'Հ', 'Ձ', 'Ղ', 'Ճ', 'Մ', 'Յ',
+            'Ն', 'Շ', 'Ո', 'Չ', 'Պ', 'Ջ', 'Ռ',
+            'Ս', 'Վ', 'Տ', 'Ր', 'Ց', 'Փ', 'Ք',
+            'Օ', 'Ֆ'
+        };
 
         public IObservable<string> OnComplete => onComplete;
         public IObservable<int> OnNextButtonClick => onNextButtonClickSubject;
@@ -70,7 +81,7 @@ namespace UI.Games
                 return;
             }
 
-            InitLetters(_capitalCityData.Letters);
+            InitLetters(_capitalCityData.CapitalCityName,_capitalCityData.ItemsCount);
             CreateAnswerIcons(_capitalCityData.CapitalCityName);
             gameObject.SetActive(true);
         }
@@ -99,11 +110,12 @@ namespace UI.Games
             }
         }
 
-        private void InitLetters(List<char> letters)
+        private void InitLetters(string capitalName,int count)
         {
-            for (int i = 0; i < letters.Count; i++)
+            var list = RandomizeElements(capitalName, count);
+            for (int i = 0; i < list.Count; i++)
             {
-                var letter = letters[i];
+                var letter = list[i];
                 var l = _lettersFactory.Get();
                 _letters.Add(l);
                 l.transform.SetSiblingIndex(i);
@@ -115,6 +127,29 @@ namespace UI.Games
             }
         }
 
+        private List<char> RandomizeElements(string letters, int count)
+        {
+            var list = new List<char>(count);
+            list.AddRange(letters);
+
+            for (int i = letters.Length; i < count; i++)
+            {
+                int index = RandomNumberGenerator.Range(0, _randomLetters.Count - 1);
+
+                list.Add(_randomLetters[index]);
+            }
+
+            Random random = new Random();
+
+            for (int i = list.Count - 1; i >= 1; i--)
+            {
+                int j = random.Next(i + 1);
+                (list[j], list[i]) = (list[i], list[j]);
+            }
+
+            return list;
+        }
+        
         private void OnLetterIconClick(bool isFromInitialPos, LetterIcon letterItem)
         {
             if (isFromInitialPos)

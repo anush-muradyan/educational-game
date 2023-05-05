@@ -17,10 +17,12 @@ namespace Data
     {
         [SerializeField] private string countryName;
         [SerializeField] private string capitalCityName;
-        [SerializeField] private List<char> letters;
+        [SerializeField] private int itemsCount = 16;
+        // [SerializeField] private List<char> letters;
 
+        public int ItemsCount => itemsCount;
         public string CountryName => countryName;
         public string CapitalCityName => capitalCityName;
-        public List<char> Letters => letters;
+        // public List<char> Letters => letters;
     }
 }

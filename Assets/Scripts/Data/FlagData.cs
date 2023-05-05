@@ -8,11 +8,13 @@ namespace Data
     public class FlagData
     {
         [SerializeField] private string countryName;
+        [SerializeField] private int itemsCount = 16;
         [SerializeField] private Sprite countryFlag;
-        [SerializeField] private List<char> letters;
-
-        public Sprite CountryFlag => countryFlag;
+        // [SerializeField] private List<char> letters;
+    
         public string CountryName => countryName;
-        public List<char> Letters => letters;
+        public int ItemsCount => itemsCount;
+        public Sprite CountryFlag => countryFlag;
+        // public List<char> Letters => letters;
     }
 }
