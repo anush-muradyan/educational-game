@@ -22,9 +22,9 @@ namespace Data
         [SerializeField] private string populationCount;
         [SerializeField] private string nationalLanguage;
         [SerializeField] private string monetaryUnit;
+        [SerializeField,Multiline] private string description;
         [SerializeField] private Sprite flag;
         [SerializeField] private Sprite coatOfArms;
-        [SerializeField,Multiline] private string description;
 
         public string CountryName => countryName;
         public string CapitalCity => capitalCity;
