@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Images
+  m_EditorClassIdentifier: 
+  m_GroupName: Images
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 57105f8791bbe453c9c2d40b69a6fa37
+  m_SerializeEntries:
+  - m_GUID: 17abd6a20103e42eabb76b253733c651
+    m_Address: Asia
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 56f18b52a880745cead178de1f53c407
+    m_Address: Africa
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 0195599d50c68465c8083fd1f5b1e4a9
+    m_Address: NorthAmerica
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 81e18e3cd9c07400c963a566f06d3f4d
+    m_Address: Europe
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 6d1e35a64288c4375b9023d0adba16c9
+    m_Address: SouthAmerica
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  - m_GUID: 6ab14915acd994e3aa5b164dfdebf714
+    m_Address: Australia
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Images
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 4b8b90a69af024f9cb4b6a43d7134321, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: f32e9bca6958c477789a1f6662efc024, type: 2}
+    - {fileID: 11400000, guid: b5ed203b546574777a2deee240fe2f2e, type: 2}

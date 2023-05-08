@@ -779,13 +779,16 @@ MonoBehaviour:
   previousButton: {fileID: 1627452407548850537}
   flagImage: {fileID: 5115584890618278539}
   letterIcon: {fileID: 7388368243011358552, guid: 66c4e14923c964cfc83be5390d87800b, type: 3}
+  answerIcon: {fileID: 5912513193144557535, guid: d25b8b52de48448e68d57a7696bda454, type: 3}
   container: {fileID: 5302095536132504535}
   countryNameContainer: {fileID: 7853464737826772421}
   correctPanel: {fileID: 187545653675405339}
   uiBlocker: {fileID: 9194926633244440322}
+  partOfTheWorldImage: {fileID: 2716583824080216941}
   countryNameText: {fileID: 6172762120726348416}
   animateVibrate: {fileID: 6215683739132474754}
   animateVibrateV2: {fileID: 3761730893669675568}
+  sd: []
 --- !u!222 &8785577268068716983
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -806,12 +809,12 @@ GameObject:
   - component: {fileID: 3567466490068960750}
   - component: {fileID: 2716583824080216941}
   m_Layer: 5
-  m_Name: Bg (1)
+  m_Name: PartOfTheWorld
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &5390506932956525647
 RectTransform:
   m_ObjectHideFlags: 0
@@ -852,7 +855,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.4509804}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

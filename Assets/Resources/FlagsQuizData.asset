@@ -16,174 +16,232 @@ MonoBehaviour:
   - countryName: "\u0540\u0531\u0545\u0531\u054D\u054F\u0531\u0546"
     itemsCount: 16
     countryFlag: {fileID: 21300000, guid: 6b8dfc3e0d2304e65abbcdc89b8534c2, type: 3}
+    partsOfTheWorld: 1
   - countryName: "\u0531\u053C\u0532\u0531\u0546\u053B\u0531"
     itemsCount: 16
     countryFlag: {fileID: 21300000, guid: 7cddc7bf0cc904196b505ecc8c638cec, type: 3}
+    partsOfTheWorld: 0
   - countryName: "\u0531\u053C\u053A\u053B\u0550"
     itemsCount: 16
     countryFlag: {fileID: 21300000, guid: 82cbabd030d274c63950110ce8a244f8, type: 3}
+    partsOfTheWorld: 2
   - countryName: "\u0531\u054E\u054D\u054F\u0550\u053B\u0531"
     itemsCount: 16
     countryFlag: {fileID: 21300000, guid: c349e1461376848cebc77e38971188c6, type: 3}
+    partsOfTheWorld: 0
   - countryName: "\u0531\u0550\u0533\u0535\u0546\u054F\u053B\u0546\u0531"
     itemsCount: 16
     countryFlag: {fileID: 21300000, guid: 94fa931dadfcd47a9a76586a7ea603f0, type: 3}
+    partsOfTheWorld: 4
   - countryName: "\u0532\u0550\u0531\u0536\u053B\u053C\u053B\u0531"
     itemsCount: 16
     countryFlag: {fileID: 21300000, guid: 9dc1d446754d348069c51ee378265312, type: 3}
+    partsOfTheWorld: 4
   - countryName: "\u0531\u054E\u054D\u054F\u0550\u0531\u053C\u053B\u0531"
     itemsCount: 16
     countryFlag: {fileID: 21300000, guid: 06aaff07184d44b5aade8c5c73a9227d, type: 3}
+    partsOfTheWorld: 5
   - countryName: "\u053D\u0548\u0550\u054E\u0531\u0539\u053B\u0531"
     itemsCount: 16
     countryFlag: {fileID: 21300000, guid: 1422dbaf0b3704d23a6df3aa25951403, type: 3}
+    partsOfTheWorld: 0
   - countryName: "\u053F\u0531\u0546\u0531\u0534\u0531"
     itemsCount: 16
     countryFlag: {fileID: 21300000, guid: 868ad9e1729aa40ebbf0c0c139e29935, type: 3}
+    partsOfTheWorld: 3
   - countryName: "\u0549\u053B\u053C\u053B"
     itemsCount: 16
     countryFlag: {fileID: 21300000, guid: 4d855725867594d3ba1093fb09f27ae2, type: 3}
+    partsOfTheWorld: 4
   - countryName: "\u0549\u053B\u0546\u0531\u054D\u054F\u0531\u0546"
     itemsCount: 16
     countryFlag: {fileID: 21300000, guid: f16ce1f8bd2584e1db09a73e47ac4059, type: 3}
+    partsOfTheWorld: 1
   - countryName: "\u053F\u053B\u054A\u0550\u0548\u054D"
     itemsCount: 16
     countryFlag: {fileID: 21300000, guid: 1f52d7a78384a4dfcb44c8eb85993f92, type: 3}
+    partsOfTheWorld: 0
   - countryName: "\u0534\u0531\u0546\u053B\u0531"
     itemsCount: 16
     countryFlag: {fileID: 21300000, guid: f3669e6ed90e44b859b4051dcbe57b32, type: 3}
+    partsOfTheWorld: 0
   - countryName: "\u0537\u053F\u054E\u0531\u0534\u0548\u0550"
     itemsCount: 16
     countryFlag: {fileID: 21300000, guid: 650e780bb864e44cab0b7d2375745413, type: 3}
+    partsOfTheWorld: 3
   - countryName: "\u0535\u0533\u053B\u054A\u054F\u0548\u054D"
     itemsCount: 16
     countryFlag: {fileID: 21300000, guid: 02e17af0376a6417f949b3ac7034f77c, type: 3}
+    partsOfTheWorld: 2
   - countryName: "\u0537\u054D\u054F\u0548\u0546\u053B\u0531"
     itemsCount: 16
     countryFlag: {fileID: 21300000, guid: 1c6487712efdf4d9896caeb3a7a2ecb3, type: 3}
+    partsOfTheWorld: 0
   - countryName: "\u0556\u053B\u0546\u053C\u0531\u0546\u0534\u053B\u0531"
     itemsCount: 16
     countryFlag: {fileID: 21300000, guid: c96308e0f63e84f36ad7601fb1ea6ca6, type: 3}
+    partsOfTheWorld: 0
   - countryName: "\u0556\u0550\u0531\u0546\u054D\u053B\u0531"
     itemsCount: 16
     countryFlag: {fileID: 21300000, guid: 83f64a0492e2246d49b889957cfb95eb, type: 3}
+    partsOfTheWorld: 0
   - countryName: "\u054E\u0550\u0531\u054D\u054F\u0531\u0546"
     itemsCount: 16
     countryFlag: {fileID: 21300000, guid: bdf6ea272d7b341738d8d4b5b6ecab9a, type: 3}
+    partsOfTheWorld: 1
   - countryName: "\u0533\u0535\u0550\u0544\u0531\u0546\u053B\u0531"
     itemsCount: 16
     countryFlag: {fileID: 21300000, guid: 4cbdb7709b27f40bd98e799db35a9b09, type: 3}
+    partsOfTheWorld: 0
   - countryName: "\u0540\u0546\u0534\u053F\u0531\u054D\u054F\u0531\u0546"
     itemsCount: 16
     countryFlag: {fileID: 21300000, guid: f1706597b28d244c5bac433d8ce946fb, type: 3}
+    partsOfTheWorld: 1
   - countryName: "\u053B\u0550\u0531\u0546"
     itemsCount: 16
     countryFlag: {fileID: 21300000, guid: 37df1ef753c2e448a878f06e06266779, type: 3}
+    partsOfTheWorld: 1
   - countryName: "\u053B\u054C\u053C\u0531\u0546\u0534\u053B\u0531"
     itemsCount: 16
     countryFlag: {fileID: 21300000, guid: 655ee091a95a246df8f439d5a664dc2b, type: 3}
+    partsOfTheWorld: 0
   - countryName: "\u053B\u054D\u0550\u0531\u0545\u0535\u053C"
     itemsCount: 16
     countryFlag: {fileID: 21300000, guid: 08af5480f2b2f47529828baf203f7e10, type: 3}
+    partsOfTheWorld: 1
   - countryName: "\u053B\u054F\u0531\u053C\u053B\u0531"
     itemsCount: 16
     countryFlag: {fileID: 21300000, guid: 7da68bda0802d4cf986df4f7675eeb54, type: 3}
+    partsOfTheWorld: 0
   - countryName: "\u0543\u0531\u054A\u0548\u0546\u053B\u0531"
     itemsCount: 16
     countryFlag: {fileID: 21300000, guid: cf1a4f140ad634667826cd3a552d543d, type: 3}
+    partsOfTheWorld: 1
   - countryName: "\u0542\u0531\u0536\u0531\u053D\u054D\u054F\u0531\u0546"
     itemsCount: 16
     countryFlag: {fileID: 21300000, guid: d78ed79b64c674c14adaff0f853e0dc5, type: 3}
+    partsOfTheWorld: 1
   - countryName: "\u053C\u0531\u054F\u054E\u053B\u0531"
     itemsCount: 16
     countryFlag: {fileID: 21300000, guid: 6a38e5c05466943cd906106a67bbc8a5, type: 3}
+    partsOfTheWorld: 0
   - countryName: "\u053C\u053B\u054F\u054E\u0531"
     itemsCount: 16
     countryFlag: {fileID: 21300000, guid: 0e2779ef7f0894cb7911ab5439413edb, type: 3}
+    partsOfTheWorld: 0
   - countryName: "\u0544\u0535\u0554\u054D\u053B\u053F\u0531"
     itemsCount: 16
     countryFlag: {fileID: 21300000, guid: a35acf56be21b44acb72f28e29cdeb3e, type: 3}
+    partsOfTheWorld: 3
   - countryName: "\u0546\u053B\u0533\u0535\u0550\u053B\u0531"
     itemsCount: 16
     countryFlag: {fileID: 21300000, guid: 6bdfc4a83a8f3413cb2d6ae8e8b22107, type: 3}
+    partsOfTheWorld: 2
   - countryName: "\u0546\u0548\u0550\u054E\u0535\u0533\u053B\u0531"
     itemsCount: 16
     countryFlag: {fileID: 21300000, guid: e5c9db7093e6a4d9ea9d458179c8fdd2, type: 3}
+    partsOfTheWorld: 0
   - countryName: "\u0556\u053B\u053C\u053B\u054A\u053B\u0546\u0546\u0535\u0550"
     itemsCount: 16
     countryFlag: {fileID: 21300000, guid: c707b9d25af9942fcbafcf55369adac7, type: 3}
+    partsOfTheWorld: 1
   - countryName: "\u053C\u0535\u0540\u0531\u054D\u054F\u0531\u0546"
     itemsCount: 16
     countryFlag: {fileID: 21300000, guid: 406f5a0f9efbb49bcbdd8512e0d01cb0, type: 3}
+    partsOfTheWorld: 0
   - countryName: "\u054D\u053C\u0548\u054E\u0531\u053F\u053B\u0531\u053B"
     itemsCount: 16
     countryFlag: {fileID: 21300000, guid: 1a6656a4269964dd7a68f749024d69c3, type: 3}
+    partsOfTheWorld: 0
   - countryName: "\u053B\u054D\u054A\u0531\u0546\u053B\u0531"
     itemsCount: 16
     countryFlag: {fileID: 21300000, guid: ea504e8d050974bd6ae00f6e3afe5a23, type: 3}
+    partsOfTheWorld: 0
   - countryName: "\u0547\u054E\u0535\u0545\u0551\u0531\u0550\u053B\u0531"
     itemsCount: 16
     countryFlag: {fileID: 21300000, guid: 8ac4db6772a7249198ae7b1df2c10d17, type: 3}
+    partsOfTheWorld: 0
   - countryName: "\u054D\u053B\u0550\u053B\u0531"
     itemsCount: 16
     countryFlag: {fileID: 21300000, guid: 2cca13a3491d84b668f21f2eb3c8874d, type: 3}
+    partsOfTheWorld: 1
   - countryName: "\u054F\u0531\u054B\u053B\u053F\u054D\u054F\u0531\u0546"
     itemsCount: 16
     countryFlag: {fileID: 21300000, guid: f5b5a7b0fdd0b4ff5841bd519865210a, type: 3}
+    partsOfTheWorld: 1
   - countryName: "\u0531\u0544\u0546"
     itemsCount: 16
     countryFlag: {fileID: 21300000, guid: f7805ee15000f4e089681807c6024431, type: 3}
+    partsOfTheWorld: 3
   - countryName: "\u054E\u053B\u0535\u054F\u0546\u0531\u0544"
     itemsCount: 16
     countryFlag: {fileID: 21300000, guid: 7ba401ee0bd304c1c8b35f821dba8f9e, type: 3}
+    partsOfTheWorld: 1
   - countryName: "\u0532\u0535\u053C\u0531\u054C\u0548\u0582\u054D"
     itemsCount: 16
     countryFlag: {fileID: 21300000, guid: 460eadba781f344b6a306a22089d276b, type: 3}
+    partsOfTheWorld: 0
   - countryName: "\u054A\u0531\u0550\u0531\u0533\u054E\u0531\u0545"
     itemsCount: 16
     countryFlag: {fileID: 21300000, guid: 6f873944464c24c14b54068e16dc8c3b, type: 3}
+    partsOfTheWorld: 0
   - countryName: "\u054A\u0535\u0550\u0548\u0582"
     itemsCount: 16
     countryFlag: {fileID: 21300000, guid: b53398891161d4f42a33d880d7245976, type: 3}
+    partsOfTheWorld: 4
   - countryName: "\u054A\u0548\u0550\u054F\u0548\u0582\u0533\u0531\u053C\u053B\u0531"
     itemsCount: 16
     countryFlag: {fileID: 21300000, guid: bfb249246adf04ad986c1072eeb0f49f, type: 3}
+    partsOfTheWorld: 0
   - countryName: "\u054C\u0548\u0582\u054D\u0531\u054D\u054F\u0531\u0546"
     itemsCount: 16
     countryFlag: {fileID: 21300000, guid: 9ac2f0f91207441ebb046e47c78614d4, type: 3}
+    partsOfTheWorld: 1
   - countryName: "\u0539\u0548\u0582\u0550\u0554\u0544\u0535\u0546\u054D\u054F\u0531\u0546"
     itemsCount: 16
     countryFlag: {fileID: 21300000, guid: 5db2efe041fc542939dd8f88ed51b756, type: 3}
+    partsOfTheWorld: 1
   - countryName: "\u0548\u0582\u053F\u0550\u0531\u053B\u0546\u0531"
     itemsCount: 16
     countryFlag: {fileID: 21300000, guid: 070357692ed5040469abf0daf64a0c15, type: 3}
+    partsOfTheWorld: 0
   - countryName: "\u0548\u0582\u0550\u0548\u0582\u0533\u054E\u0531\u0545"
     itemsCount: 16
     countryFlag: {fileID: 21300000, guid: ea8c20aea20b0401b8bbe4aeaec466f8, type: 3}
+    partsOfTheWorld: 4
   - countryName: "\u0548\u0582\u0536\u0532\u0535\u053F\u054D\u054F\u0531\u0546"
     itemsCount: 16
     countryFlag: {fileID: 21300000, guid: 01ca82284e69f419f84d2d15f4be6939, type: 3}
+    partsOfTheWorld: 1
   - countryName: "\u054E\u0535\u0546\u0535\u054D\u0548\u0582\u0535\u053C\u053C\u0531"
     itemsCount: 16
     countryFlag: {fileID: 21300000, guid: d5e5e41d2f0fa4cd4bb23e672d88bf73, type: 3}
+    partsOfTheWorld: 4
   - countryName: "\u0548\u0582\u0535\u053C\u054D"
     itemsCount: 16
     countryFlag: {fileID: 21300000, guid: 3a56dd495f3c84f169deb133d6ffb44b, type: 3}
+    partsOfTheWorld: 0
   - countryName: "\u0532\u0548\u053C\u053B\u054E\u053B\u0531"
     itemsCount: 16
     countryFlag: {fileID: 21300000, guid: d07d18c8bbdc24f7fa2a737aeeeb2795, type: 3}
+    partsOfTheWorld: 4
   - countryName: "\u0532\u0548\u0582\u053C\u0542\u0531\u0550\u053B\u0531"
     itemsCount: 16
     countryFlag: {fileID: 21300000, guid: 72bfba39a2d38467e82206246a18041e, type: 3}
+    partsOfTheWorld: 0
   - countryName: "\u0549\u0535\u053D\u053B\u0531"
     itemsCount: 16
     countryFlag: {fileID: 21300000, guid: b7a4c66d7ba244221a4f578fca9a145c, type: 3}
+    partsOfTheWorld: 0
   - countryName: "\u0540\u0548\u0582\u0546\u0531\u054D\u054F\u0531\u0546"
     itemsCount: 16
     countryFlag: {fileID: 21300000, guid: f1706597b28d244c5bac433d8ce946fb, type: 3}
+    partsOfTheWorld: 0
   - countryName: "\u054C\u0548\u0582\u0544\u053B\u0546\u053B\u0531"
     itemsCount: 16
     countryFlag: {fileID: 21300000, guid: 7dc59f27ae9804a3c9c78a4c47b47303, type: 3}
+    partsOfTheWorld: 0
   - countryName: "\u054E\u0531\u054F\u053B\u053F\u0531\u0546"
     itemsCount: 16
     countryFlag: {fileID: 21300000, guid: b755babf2f37d46779e93b788048f2eb, type: 3}
+    partsOfTheWorld: 0

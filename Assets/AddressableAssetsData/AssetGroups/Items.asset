@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Items
+  m_EditorClassIdentifier: 
+  m_GroupName: Items
+  m_Data:
+    m_SerializedData: []
+  m_GUID: bf4ba817aa85b4e9bb08209cdd5f6f3e
+  m_SerializeEntries:
+  - m_GUID: b9e8cbc5af27a4ad989e53b93726f095
+    m_Address: FlagsGame
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Items
+  - m_GUID: d4802d542052345829932037ef21ae99
+    m_Address: CountryItem
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Items
+  - m_GUID: 65c53d2e6709d4bac9633b2a007251e6
+    m_Address: InformationPageController
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Items
+  - m_GUID: 7571b73e5dda14be8ba027f4d3e7cc1b
+    m_Address: CapitalCityGame
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Items
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 4b8b90a69af024f9cb4b6a43d7134321, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 986c55b387cc64ed0961913061973cb3, type: 2}
+    - {fileID: 11400000, guid: 8cf8d46dfe6f74715b3852e9b0d75910, type: 2}

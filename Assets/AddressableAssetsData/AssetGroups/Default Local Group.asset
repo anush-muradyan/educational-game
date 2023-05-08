@@ -16,23 +16,7 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: 3d8abe4090a5e4bebad4e503f69360ed
-  m_SerializeEntries:
-  - m_GUID: b9e8cbc5af27a4ad989e53b93726f095
-    m_Address: FlagsGame
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: d4802d542052345829932037ef21ae99
-    m_Address: CountryItem
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: 65c53d2e6709d4bac9633b2a007251e6
-    m_Address: InformationPageController
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: 7571b73e5dda14be8ba027f4d3e7cc1b
-    m_Address: CapitalCityGame
-    m_ReadOnly: 0
-    m_SerializedLabels: []
+  m_SerializeEntries: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 4b8b90a69af024f9cb4b6a43d7134321, type: 2}
   m_SchemaSet:

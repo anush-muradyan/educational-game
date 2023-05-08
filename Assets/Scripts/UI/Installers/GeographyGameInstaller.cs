@@ -3,7 +3,7 @@ using Zenject;
 
 namespace UI.Installers
 {
-    public class GeographyGameInstaller:MonoInstaller<GeographyGameInstaller>
+    public class GeographyGameInstaller : MonoInstaller<GeographyGameInstaller>
     {
         public override void InstallBindings()
         {

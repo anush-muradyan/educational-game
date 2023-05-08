@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Data;
 using Pooling;
 using TMPro;
+using Tools;
 using UI.Components;
 using UnityEngine.UI;
 using UniRx;
@@ -19,34 +21,26 @@ namespace UI.Games
         [SerializeField] private Button previousButton;
         [SerializeField] private Image flagImage;
         [SerializeField] private LetterIcon letterIcon;
+        [SerializeField] private AnswerIcon answerIcon;
         [SerializeField] private RectTransform container;
         [SerializeField] private RectTransform countryNameContainer;
         [SerializeField] private RectTransform correctPanel;
         [SerializeField] private RectTransform uiBlocker;
+        [SerializeField] private Image partOfTheWorldImage;
         [SerializeField] private TextMeshProUGUI countryNameText;
         [SerializeField] private AnimateVibrate animateVibrate;
         [SerializeField] private AnimateVibrate animateVibrateV2;
+        [SerializeField] private List<Sprite> sd;
 
         private readonly List<LetterIcon> _clickedAnswers = new List<LetterIcon>();
-        private readonly List<LetterIcon> _answerItems = new List<LetterIcon>();
+        private readonly List<AnswerIcon> _answerItems = new List<AnswerIcon>();
         private readonly List<LetterIcon> _letters = new List<LetterIcon>();
-
-        private readonly List<char> _randomLetters = new List<char>()
-        {
-            'Ա', 'Բ', 'Գ', 'Դ', 'Ե', 'Զ', 'Է',
-            'Ը', 'Թ', 'Ժ', 'Ի', 'Լ', 'Խ', 'Ծ',
-            'Կ', 'Հ', 'Ձ', 'Ղ', 'Ճ', 'Մ', 'Յ',
-            'Ն', 'Շ', 'Ո', 'Չ', 'Պ', 'Ջ', 'Ռ',
-            'Ս', 'Վ', 'Տ', 'Ր', 'Ց', 'Փ', 'Ք',
-            'Օ', 'Ֆ'
-        };
+        private Dictionary<PartsOfTheWorld, Sprite> _partOfWorlds = new Dictionary<PartsOfTheWorld, Sprite>();
 
         private Dictionary<int, LetterIcon> _userAnswers = new Dictionary<int, LetterIcon>();
 
         private FlagData _currentFlagData;
-
         private int _currentDataIndex;
-
         private CompositeDisposable _disposable;
 
         public IObservable<string> OnComplete => onComplete;
@@ -57,10 +51,10 @@ namespace UI.Games
         private Subject<string> onComplete = new Subject<string>();
 
         private PoolFactory<LetterIcon> _lettersFactory;
-        private PoolFactory<LetterIcon> _answerFactory;
+        private PoolFactory<AnswerIcon> _answerFactory;
         private List<int> _freePlaces = new List<int>();
-
         public IObservable<Unit> OnBackButtonClick() => backButton.OnClickAsObservable();
+        private IAddressableProvider _addressableProvider;
 
         private void Start()
         {
@@ -72,13 +66,12 @@ namespace UI.Games
         {
             ResetGame();
             InitButtons(dataIndex, flagsCount);
-            _lettersFactory ??= new PoolFactory<LetterIcon>(letterIcon, container, 20);
-            _answerFactory ??= new PoolFactory<LetterIcon>(letterIcon, countryNameContainer, 20);
-            _disposable = new CompositeDisposable();
+            ClearData();
 
             _currentFlagData = data;
             _currentDataIndex = dataIndex;
             flagImage.sprite = _currentFlagData.CountryFlag;
+            InitPartOfWorldImage(data.PartsOfTheWorld);
             ShowComplete(alreadyComplete);
             if (alreadyComplete)
             {
@@ -89,6 +82,25 @@ namespace UI.Games
             InitLetters(_currentFlagData.CountryName,_currentFlagData.ItemsCount);
             CreateAnswerIcons(_currentFlagData.CountryName);
             gameObject.SetActive(true);
+        }
+
+        private void ClearData()
+        {
+            _lettersFactory ??= new PoolFactory<LetterIcon>(letterIcon, container, 20);
+            _answerFactory ??= new PoolFactory<AnswerIcon>(answerIcon, countryNameContainer, 20);
+            _disposable = new CompositeDisposable();
+        }
+
+        private void InitPartOfWorldImage(PartsOfTheWorld dataPartsOfTheWorld)
+        {
+            Debug.LogError("InitPartOfWorldImage");
+            if (!_partOfWorlds.ContainsKey(dataPartsOfTheWorld))
+            {
+                partOfTheWorldImage.gameObject.SetActive(false);
+                return;
+            }
+            partOfTheWorldImage.sprite = _partOfWorlds[dataPartsOfTheWorld];
+            partOfTheWorldImage.gameObject.SetActive(true);
         }
 
         private void ShowComplete(bool complete)
@@ -107,11 +119,9 @@ namespace UI.Games
         {
             for (int i = 0; i < letters.Length; i++)
             {
-                var l = _answerFactory.Get();
-                l.transform.SetSiblingIndex(i);
-                _answerItems.Add(l);
-                var i1 = i;
-                l.ButtonClickObservable.Subscribe(_ => { Debug.LogError(letters[i1]); });
+                var item = _answerFactory.Get();
+                item.transform.SetSiblingIndex(i);
+                _answerItems.Add(item);
             }
         }
 
@@ -137,9 +147,9 @@ namespace UI.Games
 
             for (int i = letters.Length; i < count; i++)
             {
-                int index = RandomNumberGenerator.Range(0, _randomLetters.Count - 1);
+                int index = RandomNumberGenerator.Range(0, Constants.RandomLetters.Count - 1);
 
-                list.Add(_randomLetters[index]);
+                list.Add(Constants.RandomLetters[index]);
             }
 
             Random random = new Random();
@@ -198,7 +208,7 @@ namespace UI.Games
         {
             for (int i = 0; i < _currentFlagData.CountryName.Length; i++)
             {
-                if (!_userAnswers.ContainsKey(i))
+                if (!_userAnswers.ContainsKey(i) ||!_userAnswers[i].Letter.Equals(_currentFlagData.CountryName[i]))
                 {
                     ShowWrongAnswer();
                     return;
@@ -240,6 +250,20 @@ namespace UI.Games
 
             poolFactoryItems?.Clear();
         }
+        private void ReleaseAnswerFactoryItems(List<AnswerIcon> poolFactoryItems, PoolFactory<AnswerIcon> factory)
+        {
+            if (poolFactoryItems == null || factory == null)
+            {
+                return;
+            }
+
+            foreach (var item in poolFactoryItems)
+            {
+                factory.Release(item);
+            }
+
+            poolFactoryItems?.Clear();
+        }
 
         private void ResetGame()
         {
@@ -250,12 +274,30 @@ namespace UI.Games
 
             _freePlaces?.Clear();
             ReleaseFactoryItems(_letters, _lettersFactory);
-            ReleaseFactoryItems(_answerItems, _answerFactory);
+            ReleaseAnswerFactoryItems(_answerItems, _answerFactory);
+            _userAnswers.Clear();
             _disposable?.Dispose();
             _clickedAnswers?.Clear();
             uiBlocker.gameObject.SetActive(false);
             container.gameObject.SetActive(true);
             countryNameContainer.gameObject.SetActive(true);
+        }
+
+        public void SetData(IAddressableProvider addressableProvider)
+        {
+            _addressableProvider = addressableProvider;
+            var list = Enum.GetValues(typeof(PartsOfTheWorld))
+                .Cast<PartsOfTheWorld>().Select(part=>part).ToList();
+            foreach (var partsOfTheWorld in list)
+            {
+                _addressableProvider.LoadAsset<Sprite>(partsOfTheWorld.ToString(),
+                    sprite =>
+                    {
+                        _partOfWorlds.Add(partsOfTheWorld,sprite);
+                        Debug.LogError(partsOfTheWorld);
+                        sd.Add(sprite);
+                    });
+            }
         }
     }
 }

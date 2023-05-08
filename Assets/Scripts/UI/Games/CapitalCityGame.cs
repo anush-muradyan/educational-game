@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Data;
 using Pooling;
 using TMPro;
+using Tools;
 using UI.Components;
 using UniRx;
 using UnityEngine;
@@ -23,7 +24,7 @@ namespace UI.Games
         [SerializeField] private RectTransform countryNameContainer;
         [SerializeField] private RectTransform correctPanel;
         [SerializeField] private RectTransform uiBlocker;
-        [SerializeField] private TextMeshProUGUI countryNameText;
+        [SerializeField] private TextMeshProUGUI capitalNameText;
 
         private readonly List<LetterIcon> _clickedAnswers = new List<LetterIcon>();
         private readonly List<LetterIcon> _answerItems = new List<LetterIcon>();
@@ -33,16 +34,7 @@ namespace UI.Games
 
         private int _currentDataIndex;
         private CompositeDisposable _disposable;
-        private readonly List<char> _randomLetters = new List<char>()
-        {
-            'Ա', 'Բ', 'Գ', 'Դ', 'Ե', 'Զ', 'Է',
-            'Ը', 'Թ', 'Ժ', 'Ի', 'Լ', 'Խ', 'Ծ',
-            'Կ', 'Հ', 'Ձ', 'Ղ', 'Ճ', 'Մ', 'Յ',
-            'Ն', 'Շ', 'Ո', 'Չ', 'Պ', 'Ջ', 'Ռ',
-            'Ս', 'Վ', 'Տ', 'Ր', 'Ց', 'Փ', 'Ք',
-            'Օ', 'Ֆ'
-        };
-
+      
         public IObservable<string> OnComplete => onComplete;
         public IObservable<int> OnNextButtonClick => onNextButtonClickSubject;
         public IObservable<int> OnPreviousButtonClickSubject => onPreviousButtonClickSubject;
@@ -134,9 +126,9 @@ namespace UI.Games
 
             for (int i = letters.Length; i < count; i++)
             {
-                int index = RandomNumberGenerator.Range(0, _randomLetters.Count - 1);
+                int index = RandomNumberGenerator.Range(0, Constants.RandomLetters.Count - 1);
 
-                list.Add(_randomLetters[index]);
+                list.Add(Constants.RandomLetters[index]);
             }
 
             Random random = new Random();
@@ -195,7 +187,7 @@ namespace UI.Games
         {
             for (int i = 0; i < _capitalCityData.CapitalCityName.Length; i++)
             {
-                if (!_userAnswers.ContainsKey(i))
+                if (!_userAnswers.ContainsKey(i) ||!_userAnswers[i].Letter.Equals(_capitalCityData.CapitalCityName[i]))
                 {
                     ShowWrongAnswer();
                     return;
@@ -204,7 +196,7 @@ namespace UI.Games
             }
 
             uiBlocker.gameObject.SetActive(true);
-            countryNameText.text = _capitalCityData.CountryName;
+            capitalNameText.text = _capitalCityData.CapitalCityName;
             container.gameObject.SetActive(false);
             countryNameContainer.gameObject.SetActive(false);
 

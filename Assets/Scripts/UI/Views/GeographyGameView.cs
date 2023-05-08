@@ -42,7 +42,7 @@ namespace UI.Views
             _addressableProvider.InstantiateAsset(flagGameAssetReference, container, flagGameContainer =>
             {
                 _flagGameController = flagGameContainer.GetComponent<FlagGameController>();
-                _flagGameController.RunGame(_flagsQuizData);
+                _flagGameController.RunGame(_flagsQuizData,_addressableProvider);
                 _flagGameController.OnBackButtonClick.Subscribe(_ => ReleaseFlagGameController()).AddTo(Disposable);
             });
         }

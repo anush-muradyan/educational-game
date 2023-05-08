@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Data
@@ -10,11 +9,21 @@ namespace Data
         [SerializeField] private string countryName;
         [SerializeField] private int itemsCount = 16;
         [SerializeField] private Sprite countryFlag;
-        // [SerializeField] private List<char> letters;
+        [SerializeField] private PartsOfTheWorld partsOfTheWorld;
     
         public string CountryName => countryName;
         public int ItemsCount => itemsCount;
         public Sprite CountryFlag => countryFlag;
-        // public List<char> Letters => letters;
+        public PartsOfTheWorld PartsOfTheWorld => partsOfTheWorld;
+    }
+
+    public enum PartsOfTheWorld
+    {
+        Europe,
+        Asia,
+        Africa,
+        NorthAmerica,
+        SouthAmerica,
+        Australia
     }
 }

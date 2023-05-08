@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using Data;
+using Tools;
 using UI.Components;
 using UnityEngine;
 using UniRx;
@@ -23,10 +24,6 @@ namespace UI.Games
         private string _answeredDataFilePath;
 
         public IObservable<Unit> OnBackButtonClick => backButton.OnClickAsObservable();
-
-        private void Start()
-        {
-        }
 
         private void OnEnable()
         {
@@ -52,12 +49,12 @@ namespace UI.Games
             flagGame.Init(_flagData.FlagData[index],index,_flagData.FlagData.Count,_answeredData.AnsweredData.Contains(_flagData.FlagData[index].CountryName));
         }
 
-        public void RunGame(FlagsQuizData flagsQuizData)
+        public void RunGame(FlagsQuizData flagsQuizData, IAddressableProvider addressableProvider)
         {
             _answeredDataFilePath=Path.Combine(Application.persistentDataPath,"FlagGameData.json");
             _flagData = flagsQuizData;
             _answeredData=GetAnsweredData();
-            
+            flagGame.SetData(addressableProvider);
             InitIcons(flagsQuizData);
         }
 
