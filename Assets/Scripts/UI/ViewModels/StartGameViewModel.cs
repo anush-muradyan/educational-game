@@ -7,7 +7,8 @@ namespace UI.ViewModels
         public enum ViewResult
         {
             None,
-            Geography
+            Geography,
+            Mathematics
         }
 
         public ReactiveProperty<ViewResult> Result { get; } = new ReactiveProperty<ViewResult>();
@@ -20,6 +21,11 @@ namespace UI.ViewModels
         public void OnGeographyGameButtonClick()
         {
             Result.SetValueAndForceNotify(ViewResult.Geography);
+        }
+
+        public void OnMathematicsGameButtonClick()
+        {
+            Result.SetValueAndForceNotify(ViewResult.Mathematics);
         }
     }
 }

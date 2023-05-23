@@ -70,12 +70,12 @@ namespace UI.Views
 
         public virtual void AnimateShow()
         {
-            //OnShown?.Invoke(this);
+            OnShown?.Invoke(this);
         }
 
         public virtual void AnimateHide()
         {
-            //OnHidden?.Invoke(this);
+            OnHidden?.Invoke(this);
         }
     }
 

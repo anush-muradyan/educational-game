@@ -16,7 +16,19 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: 3d8abe4090a5e4bebad4e503f69360ed
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 5e34bf330d8484cb98c81aadd9c8fc84
+    m_Address: MathematicsView
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: c283bad4a4aa346d0b446f97a2b008f8
+    m_Address: FillInQuizController
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: e6e27effda6d04452afc9d1c5ded7ca7
+    m_Address: QuizController
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 4b8b90a69af024f9cb4b6a43d7134321, type: 2}
   m_SchemaSet:

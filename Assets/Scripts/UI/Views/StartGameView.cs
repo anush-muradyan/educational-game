@@ -11,12 +11,15 @@ namespace UI.Views
         [SerializeField] private RectTransform startGameContainer;
         [SerializeField] private RectTransform gamesContainer;
         [SerializeField] private Button geographyGame;
+        [SerializeField] private Button mathematicsGame;
 
         protected override void OnEnabled()
         {
             base.OnEnabled();
             startGameButton.OnClickAsObservable().Subscribe(_ => OnStartGameButtonClick()).AddTo(Disposable);
             geographyGame.OnClickAsObservable().Subscribe(_ => ViewModel.OnGeographyGameButtonClick())
+                .AddTo(Disposable);
+            mathematicsGame.OnClickAsObservable().Subscribe(_ => ViewModel.OnMathematicsGameButtonClick())
                 .AddTo(Disposable);
         }
 

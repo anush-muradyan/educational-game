@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Data;
+using Managers;
 using Pooling;
 using TMPro;
 using Tools;
@@ -29,8 +30,6 @@ namespace UI.Games
         [SerializeField] private Image partOfTheWorldImage;
         [SerializeField] private TextMeshProUGUI countryNameText;
         [SerializeField] private AnimateVibrate animateVibrate;
-        [SerializeField] private AnimateVibrate animateVibrateV2;
-        [SerializeField] private List<Sprite> sd;
 
         private readonly List<LetterIcon> _clickedAnswers = new List<LetterIcon>();
         private readonly List<AnswerIcon> _answerItems = new List<AnswerIcon>();
@@ -93,7 +92,6 @@ namespace UI.Games
 
         private void InitPartOfWorldImage(PartsOfTheWorld dataPartsOfTheWorld)
         {
-            Debug.LogError("InitPartOfWorldImage");
             if (!_partOfWorlds.ContainsKey(dataPartsOfTheWorld))
             {
                 partOfTheWorldImage.gameObject.SetActive(false);
@@ -106,6 +104,11 @@ namespace UI.Games
         private void ShowComplete(bool complete)
         {
             correctPanel.gameObject.SetActive(complete);
+            uiBlocker.gameObject.SetActive(complete);
+            if (complete)
+            {
+                countryNameText.text = _currentFlagData.CountryName;
+            }
         }
 
         private void InitButtons(int dataIndex, int flagsCount)
@@ -113,7 +116,6 @@ namespace UI.Games
             nextButton.gameObject.SetActive(dataIndex + 1 < flagsCount);
             previousButton.gameObject.SetActive(dataIndex > 0);
         }
-
 
         private void CreateAnswerIcons(string letters)
         {
@@ -220,6 +222,7 @@ namespace UI.Games
             container.gameObject.SetActive(false);
             countryNameContainer.gameObject.SetActive(false);
 
+            SoundManager.Instance.PlaySFX(SoundName.CorrectAnswer);
             SaveCompleteData();
             ShowComplete(true);
         }
@@ -229,11 +232,18 @@ namespace UI.Games
             onComplete?.OnNext(_currentFlagData.CountryName);
         }
 
-        [ContextMenu("animate")]
         private void ShowWrongAnswer()
         {
-            // animateVibrate.Animate();
-            // animateVibrateV2.Animate();
+            foreach (var answer in _clickedAnswers)
+            {
+                answer.ShowWrong();
+                
+            }
+            SoundManager.Instance.PlaySFX(SoundName.WrongAnswer);
+            _freePlaces?.Clear();
+            _userAnswers?.Clear();
+            _clickedAnswers?.Clear();
+            
         }
 
         private void ReleaseFactoryItems(List<LetterIcon> poolFactoryItems, PoolFactory<LetterIcon> factory)
@@ -294,8 +304,6 @@ namespace UI.Games
                     sprite =>
                     {
                         _partOfWorlds.Add(partsOfTheWorld,sprite);
-                        Debug.LogError(partsOfTheWorld);
-                        sd.Add(sprite);
                     });
             }
         }

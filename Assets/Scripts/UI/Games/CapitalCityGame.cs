@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Data;
+using Managers;
 using Pooling;
 using TMPro;
 using Tools;
@@ -81,6 +82,11 @@ namespace UI.Games
         private void ShowComplete(bool complete)
         {
             correctPanel.gameObject.SetActive(complete);
+            uiBlocker.gameObject.SetActive(complete);
+            if (complete)
+            {
+                capitalNameText.text = _capitalCityData.CapitalCityName;
+            }
         }
 
         private void InitButtons(int dataIndex, int flagsCount)
@@ -212,6 +218,15 @@ namespace UI.Games
 
         private void ShowWrongAnswer()
         {
+            foreach (var answer in _clickedAnswers)
+            {
+                answer.ShowWrong();
+                
+            }
+            SoundManager.Instance.PlaySFX(SoundName.WrongAnswer);
+            _freePlaces?.Clear();
+            _userAnswers?.Clear();
+            _clickedAnswers?.Clear();
 
         }
 
@@ -239,6 +254,7 @@ namespace UI.Games
             _freePlaces?.Clear();
             ReleaseFactoryItems(_letters, _lettersFactory);
             ReleaseFactoryItems(_answerItems, _answerFactory);
+            _userAnswers.Clear();
             _disposable?.Dispose();
             _clickedAnswers?.Clear();
             uiBlocker.gameObject.SetActive(false);

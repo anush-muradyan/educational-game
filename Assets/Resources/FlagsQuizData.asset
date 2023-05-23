@@ -245,3 +245,7 @@ MonoBehaviour:
     itemsCount: 16
     countryFlag: {fileID: 21300000, guid: b755babf2f37d46779e93b788048f2eb, type: 3}
     partsOfTheWorld: 0
+  - countryName: "\u054E\u0531\u054F\u053B\u053F\u0531\u0546"
+    itemsCount: 16
+    countryFlag: {fileID: 21300000, guid: b755babf2f37d46779e93b788048f2eb, type: 3}
+    partsOfTheWorld: 0

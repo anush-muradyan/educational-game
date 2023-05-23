@@ -26,6 +26,9 @@ namespace UI.Flows
                         case StartGameViewModel.ViewResult.Geography:
                             _flowNavigator.RunGeographyFlow();
                             break;
+                        case StartGameViewModel.ViewResult.Mathematics:
+                            _flowNavigator.RunMathematicsFlow();
+                            break;
                     }
                 });
             });

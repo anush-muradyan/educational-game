@@ -13,12 +13,13 @@ namespace UI.Components
         [SerializeField] private TextMeshProUGUI letterText;
         [SerializeField] private Button button;
         [SerializeField] private RectTransform container;
+        [SerializeField] private Image bgImage;
         
         public char Letter;
         public int PosIndex;
         private RectTransform _parent;
 
-        private bool _isInitialPos = true;
+        public bool _isInitialPos = true;
 
         private CompositeDisposable _disposable=new CompositeDisposable();
         public IObservable<bool> ButtonClickObservable => buttonClickSubject;
@@ -83,7 +84,21 @@ namespace UI.Components
 
         public void ResetPosition()
         {
+            _isInitialPos = true;
             container.transform.localPosition = Vector3.zero;
+        }
+
+        public void ShowWrong()
+        {
+            bgImage.DOColor(Color.red, 0.3f)
+                .OnComplete(() =>
+                {
+                    bgImage.DOColor(Color.white, 0.2f); // = Color.white;
+                    container.DOLocalMove(Vector3.zero, 0.2f);
+                    Debug.LogError("complete");
+                    // ResetPosition();
+                });
+            _isInitialPos = true;
         }
     }
 }

@@ -19,7 +19,7 @@ namespace UI.Games
        
         private readonly List<FlagIcon> _flagIcons = new List<FlagIcon>();
         private FlagsQuizData _flagData;
-        private FlagGameAnsweredData _answeredData;
+        private AnsweredData _answeredData;
 
         private string _answeredDataFilePath;
 
@@ -35,38 +35,39 @@ namespace UI.Games
 
         private void SaveData(string countryName)
         {
-            if (_answeredData.AnsweredData.Contains(countryName))
+            if (_answeredData.Data.Contains(countryName))
             {
                 return;
             }
-            _answeredData.AnsweredData.Add(countryName);
-            
+            _answeredData.Data.Add(countryName);
+            var countryFlag=_flagIcons.Find(c => c.CountryName.Equals(countryName));
+            countryFlag.Complete();
             File.WriteAllText(_answeredDataFilePath,JsonUtility.ToJson(_answeredData));
         }
 
         private void RunFlagGame(int index)
         {
-            flagGame.Init(_flagData.FlagData[index],index,_flagData.FlagData.Count,_answeredData.AnsweredData.Contains(_flagData.FlagData[index].CountryName));
+            flagGame.Init(_flagData.FlagData[index],index,_flagData.FlagData.Count,_answeredData.Data.Contains(_flagData.FlagData[index].CountryName));
         }
 
         public void RunGame(FlagsQuizData flagsQuizData, IAddressableProvider addressableProvider)
         {
-            _answeredDataFilePath=Path.Combine(Application.persistentDataPath,"FlagGameData.json");
+            _answeredDataFilePath = Path.Combine(Application.persistentDataPath, "FlagGameData.json");
             _flagData = flagsQuizData;
-            _answeredData=GetAnsweredData();
+            _answeredData = GetAnsweredData();
             flagGame.SetData(addressableProvider);
             InitIcons(flagsQuizData);
         }
 
-        private FlagGameAnsweredData GetAnsweredData()
+        private AnsweredData GetAnsweredData()
         {
-            var answeredData = new FlagGameAnsweredData();
+            var answeredData = new AnsweredData();
 
             if (File.Exists(_answeredDataFilePath))
             {
                 string jsonData = File.ReadAllText(_answeredDataFilePath);
                 Debug.LogError(jsonData);
-                answeredData=JsonUtility.FromJson<FlagGameAnsweredData>(jsonData);
+                answeredData=JsonUtility.FromJson<AnsweredData>(jsonData);
             }
             else
             {
@@ -88,9 +89,9 @@ namespace UI.Games
                 icon.OnButtonClick.Subscribe(_ =>
                 {
                     flagGame.Init(data, i1, flagsQuizData.FlagData.Count,
-                        _answeredData.AnsweredData.Contains(data.CountryName));
+                        _answeredData.Data.Contains(data.CountryName));
                 });
-                icon.Init(data.CountryFlag, _answeredData.AnsweredData.Contains(data.CountryName));
+                icon.Init(data.CountryFlag, _answeredData.Data.Contains(data.CountryName),data.CountryName);
                 _flagIcons.Add(icon);
             }
         }

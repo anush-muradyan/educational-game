@@ -25,3 +25,9 @@ MonoBehaviour:
       m_SubObjectName: 
       m_SubObjectType: 
       m_EditorAssetChanged: 0
+  - AssetType: MathematicsView
+    AssetPath:
+      m_AssetGUID: 5e34bf330d8484cb98c81aadd9c8fc84
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0

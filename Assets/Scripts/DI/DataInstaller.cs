@@ -10,12 +10,14 @@ namespace DI
         [SerializeField] private FlagsQuizData flagsQuizData;
         [SerializeField] private CapitalCitiesData capitalCitiesData;
         [SerializeField] private CountriesData countriesData;
+        [SerializeField] private MathematicsGameData mathematicsGameData;
 
         public override void InstallBindings()
         {
             Container.BindInstance(flagsQuizData);
             Container.BindInstance(capitalCitiesData);
             Container.BindInstance(countriesData);
+            Container.BindInstance(mathematicsGameData);
         }
     }
 }

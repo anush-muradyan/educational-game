@@ -28,11 +28,12 @@ namespace Data
 
         public string CountryName => countryName;
         public string CapitalCity => capitalCity;
-        public string NationalLanguage => nationalLanguage;
         public string AreaCount => areaCount;
         public string PopulationCount => populationCount;
+        public string NationalLanguage => nationalLanguage;
+        public string MonetaryUnit => monetaryUnit;
+        public string Description => description;
         public Sprite Flag => flag;
         public Sprite CoatOfArms => coatOfArms;
-        public string Description => description;
     }
 }

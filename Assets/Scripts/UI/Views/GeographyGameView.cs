@@ -5,7 +5,6 @@ using UI.ViewModels;
 using UniRx;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Zenject;
 

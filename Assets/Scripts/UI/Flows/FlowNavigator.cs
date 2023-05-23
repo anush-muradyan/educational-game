@@ -27,5 +27,12 @@ namespace UI.Flows
             flow.Run();
             return flow;
         }
+
+        public AbstractFlow RunMathematicsFlow()
+        {
+            var flow = _flowFactory.CreateFlow<MathematicsFlow>();
+            flow.Run();
+            return flow;
+        }
     }
 }

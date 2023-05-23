@@ -13,5 +13,9 @@ namespace Tools
             'Ս', 'Վ', 'Տ', 'Ր', 'Ց', 'Փ', 'Ք',
             'Օ', 'Ֆ'
         };
+
+        public const string MUSIC_KEY = "music";
+        public const string SOUND_KEY = "sound";
+        public const string VOLUME_KEY = "_volume";
     }
 }

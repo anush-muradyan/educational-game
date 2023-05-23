@@ -15,6 +15,9 @@ namespace UI.Games
         [SerializeField] private TextMeshProUGUI countryName;
         [SerializeField] private TextMeshProUGUI capitalCity;
         [SerializeField] private TextMeshProUGUI nationalLanguage;
+        [SerializeField] private TextMeshProUGUI areaCount;
+        [SerializeField] private TextMeshProUGUI populationCount;
+        [SerializeField] private TextMeshProUGUI monetaryUnit;
         [SerializeField] private TextMeshProUGUI description;
         [SerializeField] private RectTransform content;
 
@@ -30,7 +33,10 @@ namespace UI.Games
             content.transform.localPosition=Vector3.zero;
             countryName.text = countryData.CountryName;
             capitalCity.text = countryData.CapitalCity;
+            areaCount.text = countryData.AreaCount;
             nationalLanguage.text = countryData.NationalLanguage;
+            populationCount.text = countryData.PopulationCount;
+            monetaryUnit.text = countryData.MonetaryUnit;
             description.text = countryData.Description;
             flag.sprite = countryData.Flag;
             coatOfArms.sprite = countryData.CoatOfArms;
