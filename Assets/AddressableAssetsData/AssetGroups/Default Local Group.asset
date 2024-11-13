@@ -17,16 +17,24 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 3d8abe4090a5e4bebad4e503f69360ed
   m_SerializeEntries:
-  - m_GUID: 5e34bf330d8484cb98c81aadd9c8fc84
-    m_Address: MathematicsView
+  - m_GUID: c283bad4a4aa346d0b446f97a2b008f8
+    m_Address: Prefabs/Items/Controllers/FillInQuizController
     m_ReadOnly: 0
     m_SerializedLabels: []
-  - m_GUID: c283bad4a4aa346d0b446f97a2b008f8
-    m_Address: FillInQuizController
+  - m_GUID: 65c53d2e6709d4bac9633b2a007251e6
+    m_Address: Prefabs/Items/Controllers/InformationPageController
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 7571b73e5dda14be8ba027f4d3e7cc1b
+    m_Address: Prefabs/Items/Controllers/CapitalCityGameController
     m_ReadOnly: 0
     m_SerializedLabels: []
   - m_GUID: e6e27effda6d04452afc9d1c5ded7ca7
-    m_Address: QuizController
+    m_Address: Prefabs/Items/Controllers/QuizController
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: b9e8cbc5af27a4ad989e53b93726f095
+    m_Address: Prefabs/Items/Controllers/FlagsGameController
     m_ReadOnly: 0
     m_SerializedLabels: []
   m_ReadOnly: 0

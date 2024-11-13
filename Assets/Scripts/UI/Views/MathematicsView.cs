@@ -2,9 +2,8 @@ using System;
 using System.IO;
 using Data;
 using Tools;
-using UI.Games;
-using UI.Games.Quiz;
-using UI.ViewModels;
+using UI.Games.FillInQuizGame;
+using UI.Games.QuizGame;
 using UniRx;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -13,7 +12,7 @@ using Zenject;
 
 namespace UI.Views
 {
-    public class MathematicsView : View<MathematicsViewModel>
+    public class MathematicsView : AbstractView
     {
         [SerializeField] private Button backButton;
         [SerializeField] private Button progressionGameButton;
@@ -24,26 +23,30 @@ namespace UI.Views
 
         [Inject] private IAddressableProvider _addressableProvider;
         [Inject] private MathematicsGameData _mathematicsGameData;
-        
+        public IObservable<Unit> OnBackButtonObservable => backButton.OnClickAsObservable();
+
         private FillInQuizController _progressionGame;
         private QuizController _expressionGame;
         private QuizController _quizController;
 
-        protected override void OnEnabled()
+        private void Start()
         {
             for (int i = 0; i < 2; i++)
             {
                 Debug.LogError(Guid.NewGuid().ToString());
             }
-            backButton.OnClickAsObservable().Subscribe(_ => ViewModel.OnBackButtonClick()).AddTo(Disposable);
-            progressionGameButton.OnClickAsObservable().Subscribe(_ => ShowProgressionGame()).AddTo(Disposable);
-            expressionGameButton.OnClickAsObservable().Subscribe(_ => ShowCountExpressionGame()).AddTo(Disposable);
-            planimetricsGameButton.OnClickAsObservable().Subscribe(_ => ShowPlanimetricsGame()).AddTo(Disposable);
+
+            progressionGameButton.OnClickAsObservable().Subscribe(_ => ShowProgressionGame())
+                .AddTo(CompositeDisposable);
+            expressionGameButton.OnClickAsObservable().Subscribe(_ => ShowCountExpressionGame())
+                .AddTo(CompositeDisposable);
+            planimetricsGameButton.OnClickAsObservable().Subscribe(_ => ShowPlanimetricsGame())
+                .AddTo(CompositeDisposable);
         }
 
         private void ShowProgressionGame()
         {
-            _addressableProvider.InstantiateAsset(progressionGameAssetReference, transform,_ =>
+            _addressableProvider.InstantiateAsset(progressionGameAssetReference, transform, _ =>
             {
                 _progressionGame = _.GetComponent<FillInQuizController>();
                 if (_progressionGame == null)
@@ -52,8 +55,9 @@ namespace UI.Views
                     return;
                 }
 
-                _progressionGame.OnBackButtonClick.Subscribe(_=>
-                    _addressableProvider.ReleaseAsset(progressionGameAssetReference,_progressionGame.gameObject)).AddTo(Disposable);
+                _progressionGame.OnBackButtonClick.Subscribe(_ =>
+                        _addressableProvider.ReleaseAsset(progressionGameAssetReference, _progressionGame.gameObject))
+                    .AddTo(CompositeDisposable);
                 _progressionGame.RunGame(_mathematicsGameData.ProgressionQuizData);
             });
         }
@@ -72,7 +76,7 @@ namespace UI.Views
                 var path = Path.Combine(Application.persistentDataPath, "ExpressionsGameData.json");
                 _expressionGame.OnBackButtonClick.Subscribe(_ =>
                         _addressableProvider.ReleaseAsset(quizGameAssetReference, _expressionGame.gameObject))
-                    .AddTo(Disposable);
+                    .AddTo(CompositeDisposable);
                 _expressionGame.RunGame(_mathematicsGameData.ExpressionsQuizData, path);
             });
             Debug.LogError("ShowCountExpressionGame");
@@ -93,7 +97,7 @@ namespace UI.Views
                 var path = Path.Combine(Application.persistentDataPath, "PlanimetricsGameData.json");
                 _quizController.OnBackButtonClick.Subscribe(_ =>
                         _addressableProvider.ReleaseAsset(quizGameAssetReference, _quizController.gameObject))
-                    .AddTo(Disposable);
+                    .AddTo(CompositeDisposable);
                 _quizController.RunGame(_mathematicsGameData.PlanimetricsQuizData, path);
             });
         }

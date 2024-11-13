@@ -16,17 +16,7 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: 3759966b91bd047359f012bf089368bd
-  m_SerializeEntries:
-  - m_GUID: f06249cfc1f8c47168c6a24d823d87c5
-    m_Address: StartGameView
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - View
-  - m_GUID: 8458e1c22813c41a1b8a1c7df6e6bc51
-    m_Address: GeographyGameView
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - View
+  m_SerializeEntries: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 4b8b90a69af024f9cb4b6a43d7134321, type: 2}
   m_SchemaSet:

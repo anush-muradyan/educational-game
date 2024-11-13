@@ -1,7 +1,9 @@
+using System;
 using Data;
 using Tools;
-using UI.Games;
-using UI.ViewModels;
+using UI.Games.CapitalCityGame;
+using UI.Games.CountryDataGame;
+using UI.Games.FlagGame;
 using UniRx;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -10,8 +12,9 @@ using Zenject;
 
 namespace UI.Views
 {
-    public class GeographyGameView : View<GeographyGameViewModel>
+    public class GeographyGameView : AbstractView
     {
+        [SerializeField] private Button backButton;
         [SerializeField] private Button flagGameButton;
         [SerializeField] private Button capitalCityGame;
         [SerializeField] private Button informationButton;
@@ -28,12 +31,14 @@ namespace UI.Views
         private FlagGameController _flagGameController;
         private CountryInformationHolder _informationContainer;
         private CapitalCityGameController _capitalCityGameController;
+       
+        public IObservable<Unit> OnBackButtonObservable => backButton.OnClickAsObservable();
 
-        protected override void OnEnabled()
+        private void Start()
         {
-            flagGameButton.OnClickAsObservable().Subscribe(_ => OnFlagGameButtonClick()).AddTo(Disposable);
-            capitalCityGame.OnClickAsObservable().Subscribe(_ => OnCapitalCityGameButtonClick()).AddTo(Disposable);
-            informationButton.OnClickAsObservable().Subscribe(_ => OnInformationButtonClick()).AddTo(Disposable);
+            flagGameButton.OnClickAsObservable().Subscribe(_ => OnFlagGameButtonClick()).AddTo(CompositeDisposable);
+            capitalCityGame.OnClickAsObservable().Subscribe(_ => OnCapitalCityGameButtonClick()).AddTo(CompositeDisposable);
+            informationButton.OnClickAsObservable().Subscribe(_ => OnInformationButtonClick()).AddTo(CompositeDisposable);
         }
 
         private void OnFlagGameButtonClick()
@@ -42,7 +47,7 @@ namespace UI.Views
             {
                 _flagGameController = flagGameContainer.GetComponent<FlagGameController>();
                 _flagGameController.RunGame(_flagsQuizData,_addressableProvider);
-                _flagGameController.OnBackButtonClick.Subscribe(_ => ReleaseFlagGameController()).AddTo(Disposable);
+                _flagGameController.OnBackButtonClick.Subscribe(_ => ReleaseFlagGameController()).AddTo(CompositeDisposable);
             });
         }
 
@@ -52,7 +57,7 @@ namespace UI.Views
             {
                 _capitalCityGameController = capitalCityGameContainer.GetComponent<CapitalCityGameController>();
                 _capitalCityGameController.RunGame(_capitalCitiesData);
-                _capitalCityGameController.OnBackButtonClick.Subscribe(_ => ReleaseCapitalCityGameController()).AddTo(Disposable);
+                _capitalCityGameController.OnBackButtonClick.Subscribe(_ => ReleaseCapitalCityGameController()).AddTo(CompositeDisposable);
             });
         }
 
@@ -63,7 +68,7 @@ namespace UI.Views
                 _informationContainer = information.GetComponent<CountryInformationHolder>();
                 _informationContainer.RunGame(_countriesData);
                 _informationContainer.OnBackButtonClick.Subscribe(_ => ReleaseCountryInformationHolder())
-                    .AddTo(Disposable);
+                    .AddTo(CompositeDisposable);
             });
         }
 
@@ -91,8 +96,9 @@ namespace UI.Views
             }
         }
 
-        protected override void OnDestroy()
+        public override void Dispose()
         {
+            base.Dispose();
             ReleaseFlagGameController();
         }
     }

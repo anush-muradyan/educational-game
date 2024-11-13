@@ -1,4 +1,5 @@
-using UnityEngine.Events;
+using System;
+using UniRx;
 
 namespace UI.Flows
 {
@@ -6,48 +7,37 @@ namespace UI.Flows
         void Run();
     }
 
-    public interface IFlowResult {
-        UnityEvent OnFinish { get; }
-        UnityEvent OnCancel { get; }
-        void Cancel();
-        void Finish();
-    }
-
     public interface IFlowResult<TResult> {
-        UnityEvent<TResult> OnFinish { get; }
+        IObservable<TResult> OnFinish { get; }
         void Finish(TResult result);
     }
 
-    public abstract class AbstractFlow : IFlow, IFlowResult {
-        public UnityEvent OnFinish { get; }
-        public UnityEvent OnCancel { get; }
-
-        protected AbstractFlow() {
-            OnFinish = new UnityEvent();
-            OnCancel = new UnityEvent();
-        }
-
+    public abstract class AbstractFlow : IFlow
+    {
+        public IObservable<Unit> OnFinish => _onFinish;
+        private Subject<Unit> _onFinish = new();
+        public IObservable<Unit> OnCancel => _onCancel;
+        private Subject<Unit> _onCancel = new();
+        
         public abstract void Run();
 
         public virtual void Finish() {
-            OnFinish?.Invoke();
+            _onFinish?.OnNext(Unit.Default);
         }
 		
         public virtual void Cancel() {
-            OnCancel?.Invoke();
+            _onCancel?.OnNext(Unit.Default);
         }
     }
 
-    public abstract class AbstractFlow<TResult> : AbstractFlow, IFlowResult<TResult> {
-        public new UnityEvent<TResult> OnFinish { get; }
-
-        protected AbstractFlow() {
-            OnFinish = new UnityEvent<TResult>();
-        }
+    public abstract class AbstractFlow<TResult> : AbstractFlow, IFlowResult<TResult>
+    {
+        public new IObservable<TResult> OnFinish => _onFinish;
+        private Subject<TResult> _onFinish = new();
 
         public virtual void Finish(TResult result) {
             Finish();
-            OnFinish?.Invoke(result);
+            _onFinish?.OnNext(result);
         }
     }
 }

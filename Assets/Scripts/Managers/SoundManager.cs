@@ -1,8 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using DefaultNamespace.Core.Shared;
 using Tools;
+using UI.Components;
+using UniRx;
 using UnityEngine;
 using UnityEngine.Events;
 using Zenject;
@@ -10,7 +11,8 @@ using Zenject;
 namespace Managers
 {
     public class SoundManager: MonoBehaviour {
-        public UnityEvent<bool> OnSoundMute = new UnityEvent<bool>();
+        public IObservable<bool> OnSoundMute =>_onSoundMute;
+        private Subject<bool> _onSoundMute = new();
 
         [SerializeField] private AudioSource sfxAudioSource;
         [SerializeField] private AudioSource backgroundAudioSource;
@@ -66,7 +68,7 @@ namespace Managers
         }
 
         public void Mute(bool mute) {
-            OnSoundMute?.Invoke(mute);
+            _onSoundMute?.OnNext(mute);
             MuteMusic(mute);
             MuteSFX(mute);
         }

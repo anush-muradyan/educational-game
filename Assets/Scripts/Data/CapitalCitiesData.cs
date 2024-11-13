@@ -18,11 +18,9 @@ namespace Data
         [SerializeField] private string countryName;
         [SerializeField] private string capitalCityName;
         [SerializeField] private int itemsCount = 16;
-        // [SerializeField] private List<char> letters;
 
         public int ItemsCount => itemsCount;
         public string CountryName => countryName;
         public string CapitalCityName => capitalCityName;
-        // public List<char> Letters => letters;
     }
 }

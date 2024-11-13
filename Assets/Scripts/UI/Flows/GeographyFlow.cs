@@ -1,19 +1,24 @@
+using UI.Components;
 using UI.Views;
+using UniRx;
 
 namespace UI.Flows
 {
     public class GeographyFlow : AbstractFlow
     {
-        private readonly UIManager _uiManager;
+        private readonly FlowNavigator _flowNavigator;
+        private readonly IUiService _uiService;
 
-        public GeographyFlow(UIManager uiManager)
+        public GeographyFlow(FlowNavigator flowNavigator,IUiService uiService)
         {
-            _uiManager = uiManager;
+            _flowNavigator = flowNavigator;
+            _uiService = uiService;
         }
 
         public override void Run()
         {
-            _uiManager.Open<GeographyGameView>();
+            var view=_uiService.ShowView<GeographyGameView>();
+            view.OnBackButtonObservable.Subscribe(_ => _flowNavigator.Start());
         }
     }
 }

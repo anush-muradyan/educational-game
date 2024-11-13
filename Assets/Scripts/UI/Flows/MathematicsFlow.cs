@@ -1,33 +1,24 @@
-using UI.ViewModels;
+using UI.Components;
 using UI.Views;
 using UniRx;
+
 namespace UI.Flows
 {
     public class MathematicsFlow : AbstractFlow
     {
-        private readonly UIManager _uiManager;
+        private readonly IUiService _uiService;
         private readonly FlowNavigator _flowNavigator;
 
-        public MathematicsFlow(UIManager uiManager,FlowNavigator flowNavigator)
+        public MathematicsFlow(IUiService uiService, FlowNavigator flowNavigator)
         {
-            _uiManager = uiManager;
+            _uiService = uiService;
             _flowNavigator = flowNavigator;
         }
 
         public override void Run()
         {
-            _uiManager.Open<MathematicsView>().OnSuccess(view =>
-            {
-                view.ViewModel.Result.Subscribe(result =>
-                {
-                    switch (result)
-                    {
-                        case MathematicsViewModel.ViewResult.Back:
-                            _flowNavigator.Start();
-                            break;
-                    }
-                });
-            });
+            var view = _uiService.ShowView<MathematicsView>();
+            view.OnBackButtonObservable.Subscribe(_ => _flowNavigator.Start());
         }
     }
 }

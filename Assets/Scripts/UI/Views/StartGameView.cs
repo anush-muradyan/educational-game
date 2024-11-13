@@ -1,11 +1,11 @@
-using UI.ViewModels;
+using System;
 using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace UI.Views
 {
-    public class StartGameView : View<StartGameViewModel>
+    public class StartGameView : AbstractView//<StartGameViewModel>
     {
         [SerializeField] private Button startGameButton;
         [SerializeField] private RectTransform startGameContainer;
@@ -13,16 +13,14 @@ namespace UI.Views
         [SerializeField] private Button geographyGame;
         [SerializeField] private Button mathematicsGame;
 
-        protected override void OnEnabled()
+        public IObservable<Unit> OnGeographyGameButtonObservable => geographyGame.OnClickAsObservable();
+        public IObservable<Unit> OnMathematicsGameButtonObservable => mathematicsGame.OnClickAsObservable();
+        
+        protected void Start()
         {
-            base.OnEnabled();
-            startGameButton.OnClickAsObservable().Subscribe(_ => OnStartGameButtonClick()).AddTo(Disposable);
-            geographyGame.OnClickAsObservable().Subscribe(_ => ViewModel.OnGeographyGameButtonClick())
-                .AddTo(Disposable);
-            mathematicsGame.OnClickAsObservable().Subscribe(_ => ViewModel.OnMathematicsGameButtonClick())
-                .AddTo(Disposable);
+            startGameButton.OnClickAsObservable().Subscribe(_ => OnStartGameButtonClick()).AddTo(CompositeDisposable);
         }
-
+        
         private void OnStartGameButtonClick()
         {
             startGameContainer.gameObject.SetActive(false);
