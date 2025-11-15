@@ -1,4 +1,5 @@
-using UI.Components;
+using UI.Popups;
+using UI.Services;
 using UI.Views;
 using UnityEngine;
 using Zenject;
@@ -41,6 +42,7 @@ namespace DI
         private void BindFactories()
         {
             Container.Bind<ViewFactory>().AsSingle().Lazy();
+            Container.Bind<PopupFactory>().AsSingle().Lazy();
         }
 
         private void BindViews()
